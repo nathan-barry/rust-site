@@ -1,4 +1,3 @@
-use std::f64;
 use dioxus::prelude::*;
 use wasm_bindgen::prelude::*;
 
@@ -92,7 +91,6 @@ impl Universe {
     }
 }
 
-
 // use std::fmt;
 
 // impl fmt::Display for Universe {
@@ -125,24 +123,25 @@ fn draw(game: &mut Universe) {
         .unwrap();
 
     game.tick();
+    const CELL_SIZE: f64 = 12.0;
 
-    draw_grid(&game, &ctx);
-    draw_cells(&game, &ctx);
+    draw_grid(&game, &ctx, CELL_SIZE);
+    draw_cells(&game, &ctx, CELL_SIZE);
 }
 
-fn draw_grid(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
-    const CELL_SIZE: f64 = 16.0;
+fn draw_grid(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d, CELL_SIZE: f64) {
+    const GRID_COLOR: &str = "#CCCCCC";
 
     ctx.begin_path();
     // Vertical lines.
-    for i in 0..game.height{
+    for i in 0..=game.height{
         let i = i as f64;
         ctx.move_to(i * (CELL_SIZE + 1.0) + 1.0, 0.0);
         ctx.line_to(i * (CELL_SIZE + 1.0) + 1.0, (CELL_SIZE + 1.0) * game.height as f64 + 1.0);
     }
 
     // Horizontal lines.
-    for j in 0..game.width as usize{
+    for j in 0..=game.width as usize{
         let j = j as f64;
         ctx.move_to(0.0,                           j * (CELL_SIZE + 1.0) + 1.0);
         ctx.line_to((CELL_SIZE + 1.0) * game.width as f64 + 1.0, j * (CELL_SIZE + 1.0) + 1.0);
@@ -151,11 +150,9 @@ fn draw_grid(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
     ctx.stroke();
 }
 
-fn draw_cells(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
-    const GRID_COLOR: &str = "#CCCCCC";
+fn draw_cells(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d, CELL_SIZE: f64) {
     const DEAD_COLOR: &str = "#FFFFFF";
     const ALIVE_COLOR: &str = "#000000";
-    const CELL_SIZE: f64 = 16.0;
 
     ctx.begin_path();
     for i in 0..game.height as usize {
@@ -181,12 +178,9 @@ fn draw_cells(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
 fn app(cx: Scope) -> Element {
     let game = use_ref(cx, Universe::new);
 
-    // use_effect(cx, (), |_| {
-    //     async move {
-    //         game.with_mut(|game| draw(game));
-    //     }
-    // });
-
+    // Set up an interval to call draw(game) every 100 milliseconds
+    let game_clone = game.clone();
+    gloo_timers::callback::Interval::new(250, move || game_clone.with_mut(|game| draw(game))).forget();
 
     cx.render(rsx! {
         div {
@@ -196,14 +190,14 @@ fn app(cx: Scope) -> Element {
                 height: "1000",
             }
             // game1.with(|game1| format!("{}", game1))
-            button {
-                onclick: move |_| game.with_mut(|game| draw(game)),
-                "Click me!"
-            }
-            button {
-                onclick: move |_| game.with_mut(|game| for _ in 0..10 {draw(game)}),
-                "Click me!"
-            }
+            // button {
+            //     onclick: move |_| game.with_mut(|game| draw(game)),
+            //     "Click me!"
+            // }
+            // button {
+            //     onclick: move |_| game.with_mut(|game| for _ in 0..10 {draw(game)}),
+            //     "Click me!"
+            // }
         }
     })
 }
