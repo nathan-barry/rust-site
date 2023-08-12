@@ -1,5 +1,6 @@
 use std::f64;
 use dioxus::prelude::*;
+use wasm_bindgen::prelude::*;
 
 fn main() {
     // launch the web app
@@ -21,8 +22,8 @@ pub struct Universe {
 
 impl Universe {
     fn new() -> Universe {
-        let width = 16;
-        let height = 16;
+        let width = 64;
+        let height = 64;
 
         let cells = (0..width * height)
             .map(|i| {
@@ -92,83 +93,115 @@ impl Universe {
 }
 
 
-use std::fmt;
+// use std::fmt;
 
-impl fmt::Display for Universe {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        for line in self.cells.as_slice().chunks(self.width as usize) {
-            for &cell in line {
-                let symbol = if cell == Cell::Dead { '◻' } else { '◼' };
-                write!(f, "{}", symbol)?;
-            }
-            write!(f, "\n")?;
-        }
+// impl fmt::Display for Universe {
+//     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+//         for line in self.cells.as_slice().chunks(self.width as usize) {
+//             for &cell in line {
+//                 let symbol = if cell == Cell::Dead { '◻' } else { '◼' };
+//                 write!(f, "{}", symbol)?;
+//             }
+//             write!(f, "\n")?;
+//         }
 
-        Ok(())
-    }
-}
-
-// fn draw() {
-//     let document = web_sys::window().unwrap().document().unwrap();
-//     let canvas = document.get_element_by_id("canvas").unwrap();
-//     let canvas: web_sys::HtmlCanvasElement = canvas
-//         .dyn_into::<web_sys::HtmlCanvasElement>()
-//         .map_err(|_| ())
-//         .unwrap();
-
-//     let context = canvas
-//         .get_context("2d")
-//         .unwrap()
-//         .unwrap()
-//         .dyn_into::<web_sys::CanvasRenderingContext2d>()
-//         .unwrap();
-
-//     context.begin_path();
-
-//     // Draw the outer circle.
-//     context
-//         .arc(75.0, 75.0, 50.0, 0.0, f64::consts::PI * 2.0)
-//         .unwrap();
-
-//     // Draw the mouth.
-//     context.move_to(110.0, 75.0);
-//     context.arc(75.0, 75.0, 35.0, 0.0, f64::consts::PI).unwrap();
-
-//     // Draw the left eye.
-//     context.move_to(65.0, 65.0);
-//     context
-//         .arc(60.0, 65.0, 5.0, 0.0, f64::consts::PI * 2.0)
-//         .unwrap();
-
-//     // Draw the right eye.
-//     context.move_to(95.0, 65.0);
-//     context
-//         .arc(90.0, 65.0, 5.0, 0.0, f64::consts::PI * 2.0)
-//         .unwrap();
-
-//     context.stroke();
+//         Ok(())
+//     }
 // }
 
+fn draw(game: &mut Universe) {
+    let document = web_sys::window().unwrap().document().unwrap();
+    let canvas = document.get_element_by_id("canvas").unwrap();
+    let canvas: web_sys::HtmlCanvasElement = canvas
+        .dyn_into::<web_sys::HtmlCanvasElement>()
+        .map_err(|_| ())
+        .unwrap();
+
+    let ctx = canvas
+        .get_context("2d")
+        .unwrap()
+        .unwrap()
+        .dyn_into::<web_sys::CanvasRenderingContext2d>()
+        .unwrap();
+
+    game.tick();
+
+    draw_grid(&game, &ctx);
+    draw_cells(&game, &ctx);
+}
+
+fn draw_grid(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
+    const CELL_SIZE: f64 = 16.0;
+
+    ctx.begin_path();
+    // Vertical lines.
+    for i in 0..game.height{
+        let i = i as f64;
+        ctx.move_to(i * (CELL_SIZE + 1.0) + 1.0, 0.0);
+        ctx.line_to(i * (CELL_SIZE + 1.0) + 1.0, (CELL_SIZE + 1.0) * game.height as f64 + 1.0);
+    }
+
+    // Horizontal lines.
+    for j in 0..game.width as usize{
+        let j = j as f64;
+        ctx.move_to(0.0,                           j * (CELL_SIZE + 1.0) + 1.0);
+        ctx.line_to((CELL_SIZE + 1.0) * game.width as f64 + 1.0, j * (CELL_SIZE + 1.0) + 1.0);
+    }
+
+    ctx.stroke();
+}
+
+fn draw_cells(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d) {
+    const GRID_COLOR: &str = "#CCCCCC";
+    const DEAD_COLOR: &str = "#FFFFFF";
+    const ALIVE_COLOR: &str = "#000000";
+    const CELL_SIZE: f64 = 16.0;
+
+    ctx.begin_path();
+    for i in 0..game.height as usize {
+        for j in 0..game.width as usize{
+            let idx = game.get_index(i as u32, j as u32);
+            
+            ctx.set_fill_style(&JsValue::from_str(match game.cells[idx] {
+                Cell::Dead => DEAD_COLOR,
+                Cell::Alive => ALIVE_COLOR,
+            }));
+
+            ctx.fill_rect(
+                i as f64 * (CELL_SIZE + 1.0) + 1.0,
+                j as f64 * (CELL_SIZE + 1.0) + 1.0,
+                CELL_SIZE,
+                CELL_SIZE,
+            );
+        }
+    }
+    ctx.stroke();
+}
+
 fn app(cx: Scope) -> Element {
+    let game = use_ref(cx, Universe::new);
+
     // use_effect(cx, (), |_| {
     //     async move {
-    //         canvas.height
-    //         draw();
+    //         game.with_mut(|game| draw(game));
     //     }
     // });
-    let game1 = use_ref(cx, || Universe::new());
+
 
     cx.render(rsx! {
         div {
-            // canvas {
-            //     id: "canvas",
-            //     width: "500",
-            //     height: "400",
-            //     style: "border: 1px solid black",
-            // }
-            game1.with(|game1| format!("{}", game1))
+            canvas {
+                id: "canvas",
+                width: "1000",
+                height: "1000",
+            }
+            // game1.with(|game1| format!("{}", game1))
             button {
-                onclick: move |_| game1.with_mut(|game1| game1.tick()),
+                onclick: move |_| game.with_mut(|game| draw(game)),
+                "Click me!"
+            }
+            button {
+                onclick: move |_| game.with_mut(|game| for _ in 0..10 {draw(game)}),
                 "Click me!"
             }
         }
