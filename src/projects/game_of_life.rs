@@ -63,9 +63,9 @@ impl Game {
             .unwrap();
 
         let cell_size: f64 = 12.0;
-        let alive_color = String::from_str("#000000").unwrap();
-        let dead_color = String::from_str("#FFFFFF").unwrap();
-        let grid_color = String::from_str("#CCCCCC").unwrap();
+        let alive_color = String::from_str("#d4d4d4").unwrap();
+        let dead_color = String::from_str("#191919").unwrap();
+        let grid_color = String::from_str("#7f7f7f").unwrap();
 
         Game {
             width,

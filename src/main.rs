@@ -1,57 +1,29 @@
 #![allow(non_snake_case)]
 
 mod projects;
+mod pages;
+mod components;
 
 use crate::projects::game_of_life::GameOfLife;
+use crate::pages::{
+    home::Home,
+    page_not_found::PageNotFound
+};
+use crate::components::header::Header;
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
 #[derive(Routable, Clone)]
 enum Route {
-    #[route("/")]
-    Home {},
-    #[route("/a")]
-    Test {},
-    #[route("/game")]
-    GameOfLife {},
+    #[layout(Header)]
+        #[route("/")]
+        Home {},
+        #[route("/game")]
+        GameOfLife {},
+    #[end_layout]
     // PageNotFound is a catch all route that will match any route and placing the matched segments in the route field
     #[route("/:..route")]
     PageNotFound { route: Vec<String> },
-}
-
-#[inline_props]
-fn Home(cx: Scope) -> Element {
-    render! {
-        h1 { "Welcome!" },
-        p {
-            Link { to:Route::GameOfLife {},
-                "Game"
-            }
-        },
-        p { Link { to:Route::Test {},
-                "Test"
-            }
-        },
-    }
-}
-
-#[inline_props]
-fn Test(cx: Scope) -> Element {
-    render! {
-        h1 { "Test!" }
-    }
-}
-
-#[inline_props]
-fn PageNotFound(cx: Scope, route: Vec<String>) -> Element {
-    render! {
-        h1 { "Page not found" }
-        p { "We are terribly sorry, but the page you requested doesn't exist." }
-        pre {
-            color: "red",
-            "log:\nattemped to navigate to: {route:?}"
-        }
-    }
 }
 
 fn app(cx: Scope) -> Element {
