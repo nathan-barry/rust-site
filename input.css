@@ -15,7 +15,7 @@
 	}
 
 	h1 {
-		@apply text-3xl
+		@apply text-4xl
 	}
 
 	h2 {
@@ -25,4 +25,8 @@
 	li {
 		@apply cursor-pointer
 	}
+
+    p {
+        @apply text-xl
+    }
 }

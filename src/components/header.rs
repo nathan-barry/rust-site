@@ -8,8 +8,11 @@ pub fn Header(cx: Scope) -> Element {
         div {
             class: "m-16",
 
-            h1 { class: "mb-4 text-highlight",
-                "nathan.rs" }
+            h1 { class: "mb-8 hover:text-highlight",
+                Link { to:Route::Home {},
+                    "nathan.rs" }
+                }
+
             Outlet::<Route> {}
         }
     }
