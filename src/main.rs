@@ -1,5 +1,10 @@
+use std::str::FromStr;
+use std::rc::Rc;
 use dioxus::prelude::*;
 use wasm_bindgen::prelude::*;
+use web_sys::{Document, HtmlCanvasElement, CanvasRenderingContext2d};
+use wasm_bindgen::JsCast;
+use wasm_bindgen::closure::Closure;
 
 fn main() {
     // launch the web app
@@ -13,30 +18,71 @@ pub enum Cell {
     Alive = 1
 }
 
-pub struct Universe {
+impl Cell {
+    fn toggle(&mut self) {
+        *self = match *self {
+            Cell::Dead => Cell::Alive,
+            Cell::Alive => Cell::Dead,
+        };
+    }
+}
+
+pub struct Game {
     width: u32,
     height: u32,
     cells: Vec<Cell>,
+    document: Document,
+    canvas: HtmlCanvasElement,
+    context: CanvasRenderingContext2d,
+    cell_size: f64,
+    alive_color: String,
+    dead_color: String,
+    grid_color: String,
 }
 
-impl Universe {
-    fn new() -> Universe {
-        let width = 64;
-        let height = 64;
+impl Game {
+    fn new() -> Game {
+        let width = 100;
+        let height = 100;
 
         let cells = (0..width * height)
             .map(|i| {
-                if i % 2 == 0 || i % 7 == 0 {
+                if i % 2 == 0 || i % 9 == 0 {
                     Cell::Alive
                 } else {
                     Cell::Dead
                 }
             }).collect();
 
-        Universe {
+        let document = web_sys::window().unwrap().document().unwrap();
+        let canvas = document.get_element_by_id("canvas").unwrap();
+        let canvas: HtmlCanvasElement = canvas
+            .dyn_into()
+            .map_err(|_| ())
+            .unwrap();
+        let context: CanvasRenderingContext2d = canvas
+            .get_context("2d")
+            .unwrap()
+            .unwrap()
+            .dyn_into()
+            .unwrap();
+
+        let cell_size: f64 = 12.0;
+        let alive_color = String::from_str("#000000").unwrap();
+        let dead_color = String::from_str("#FFFFFF").unwrap();
+        let grid_color = String::from_str("#CCCCCC").unwrap();
+
+        Game {
             width,
             height,
             cells,
+            document,
+            canvas,
+            context,
+            cell_size,
+            alive_color,
+            dead_color,
+            grid_color,
         }
     }
 
@@ -89,6 +135,60 @@ impl Universe {
         }
         self.cells = next;
     }
+
+    fn draw_grid(&self) {
+        let ctx = &self.context;
+        let cell_size = self.cell_size;
+
+        ctx.set_stroke_style(&JsValue::from_str(&self.grid_color));
+
+        ctx.begin_path();
+        // Vertical lines.
+        for i in 0..=self.height{
+            let i = i as f64;
+            ctx.move_to(i * (cell_size + 1.0) + 1.0, 0.0);
+            ctx.line_to(i * (cell_size + 1.0) + 1.0, (cell_size + 1.0) * self.height as f64 + 1.0);
+        }
+
+        // Horizontal lines.
+        for j in 0..=self.width as usize{
+            let j = j as f64;
+            ctx.move_to(0.0,                           j * (cell_size + 1.0) + 1.0);
+            ctx.line_to((cell_size + 1.0) * self.width as f64 + 1.0, j * (cell_size + 1.0) + 1.0);
+        }
+
+        ctx.stroke();
+    }
+
+    fn draw_cells(&self) {
+        let ctx = &self.context;
+        let cell_size = self.cell_size;
+
+        ctx.begin_path();
+        for i in 0..self.height as usize {
+            for j in 0..self.width as usize{
+                let idx = self.get_index(i as u32, j as u32);
+                
+                ctx.set_fill_style(&JsValue::from_str(match self.cells[idx] {
+                    Cell::Dead => &self.dead_color,
+                    Cell::Alive => &self.alive_color,
+                }));
+
+                ctx.fill_rect(
+                    i as f64 * (cell_size + 1.0) + 1.0,
+                    j as f64 * (cell_size + 1.0) + 1.0,
+                    cell_size,
+                    cell_size,
+                );
+            }
+        }
+        ctx.stroke();
+    }
+
+    fn toggle_cell(&mut self, row: u32, column: u32) {
+        let idx = self.get_index(row, column);
+        self.cells[idx].toggle();
+    }
 }
 
 // use std::fmt;
@@ -107,97 +207,80 @@ impl Universe {
 //     }
 // }
 
-fn draw(game: &mut Universe) {
-    let document = web_sys::window().unwrap().document().unwrap();
-    let canvas = document.get_element_by_id("canvas").unwrap();
-    let canvas: web_sys::HtmlCanvasElement = canvas
-        .dyn_into::<web_sys::HtmlCanvasElement>()
-        .map_err(|_| ())
-        .unwrap();
-
-    let ctx = canvas
-        .get_context("2d")
-        .unwrap()
-        .unwrap()
-        .dyn_into::<web_sys::CanvasRenderingContext2d>()
-        .unwrap();
-
+fn draw(game: Rc<RefCell<Game>>) {
+    let mut game = game.borrow_mut();
     game.tick();
-    const CELL_SIZE: f64 = 12.0;
-
-    draw_grid(&game, &ctx, CELL_SIZE);
-    draw_cells(&game, &ctx, CELL_SIZE);
+    game.draw_cells();
 }
 
-fn draw_grid(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d, CELL_SIZE: f64) {
-    const GRID_COLOR: &str = "#CCCCCC";
+fn draw_handler(game: Rc<RefCell<Game>>) {
+    let game_ref = game.clone();
+    let canvas_ref = game.borrow().canvas.clone();
+    let cell_size_ref = game.borrow().cell_size;
+    let closure = Closure::wrap(Box::new(move |event: web_sys::MouseEvent| {
+        let mut game = game_ref.borrow_mut();
 
-    ctx.begin_path();
-    // Vertical lines.
-    for i in 0..=game.height{
-        let i = i as f64;
-        ctx.move_to(i * (CELL_SIZE + 1.0) + 1.0, 0.0);
-        ctx.line_to(i * (CELL_SIZE + 1.0) + 1.0, (CELL_SIZE + 1.0) * game.height as f64 + 1.0);
-    }
+        // Calculate the click's x and y coordinates relative to the canvas
+        let bounding_rect = canvas_ref.get_bounding_client_rect();
+        let scale_x = canvas_ref.width() as f64 / bounding_rect.width();
+        let scale_y = canvas_ref.height() as f64 / bounding_rect.height();
+        let canvas_x = (event.client_x() as f64 - bounding_rect.left()) * scale_x;
+        let canvas_y = (event.client_y() as f64 - bounding_rect.top()) * scale_y;
 
-    // Horizontal lines.
-    for j in 0..=game.width as usize{
-        let j = j as f64;
-        ctx.move_to(0.0,                           j * (CELL_SIZE + 1.0) + 1.0);
-        ctx.line_to((CELL_SIZE + 1.0) * game.width as f64 + 1.0, j * (CELL_SIZE + 1.0) + 1.0);
-    }
+        // Calculate the row and column of the clicked cell
+        let row = (canvas_x / (cell_size_ref + 1.0)) as u32;
+        let col = (canvas_y / (cell_size_ref + 1.0)) as u32;
 
-    ctx.stroke();
-}
+        let row = match row {
+            row if row == 0 => 1,
+            row if row == game.height-1 => game.height-2,
+            row => row,
+        };
+        let col = match col {
+            col if col == 0 => 1,
+            col if col == game.height-1 => game.height-2,
+            col => col,
+        };
 
-fn draw_cells(game: &Universe, ctx: &web_sys::CanvasRenderingContext2d, CELL_SIZE: f64) {
-    const DEAD_COLOR: &str = "#FFFFFF";
-    const ALIVE_COLOR: &str = "#000000";
-
-    ctx.begin_path();
-    for i in 0..game.height as usize {
-        for j in 0..game.width as usize{
-            let idx = game.get_index(i as u32, j as u32);
-            
-            ctx.set_fill_style(&JsValue::from_str(match game.cells[idx] {
-                Cell::Dead => DEAD_COLOR,
-                Cell::Alive => ALIVE_COLOR,
-            }));
-
-            ctx.fill_rect(
-                i as f64 * (CELL_SIZE + 1.0) + 1.0,
-                j as f64 * (CELL_SIZE + 1.0) + 1.0,
-                CELL_SIZE,
-                CELL_SIZE,
-            );
+        // Different patterns
+        if row % 2 == 0 {
+            game.toggle_cell(row+1, col);
+            game.toggle_cell(row-1, col-1);
+            game.toggle_cell(row-1, col);
+            game.toggle_cell(row-1, col+1);
+            game.toggle_cell(row, col+1);
+        } else {
+            game.toggle_cell(row-1, col);
+            game.toggle_cell(row+1, col+1);
+            game.toggle_cell(row+1, col);
+            game.toggle_cell(row+1, col-1);
+            game.toggle_cell(row, col-1);
         }
-    }
-    ctx.stroke();
+        game.draw_cells();
+    }) as Box<dyn FnMut(_)>);
+
+    game.borrow().canvas.add_event_listener_with_callback("click", closure.as_ref().unchecked_ref()).unwrap();
+    closure.forget();
 }
 
 fn app(cx: Scope) -> Element {
-    let game = use_ref(cx, Universe::new);
-
-    // Set up an interval to call draw(game) every 100 milliseconds
-    let game_clone = game.clone();
-    gloo_timers::callback::Interval::new(250, move || game_clone.with_mut(|game| draw(game))).forget();
+    use_effect(cx, (), move |_| {
+      async move {
+        let game = Rc::new(RefCell::new(Game::new()));
+        game.borrow_mut().draw_grid();
+        draw_handler(game.clone());
+        // Set up an interval to call draw(game) every 100 milliseconds
+        gloo_timers::callback::Interval::new(50, move || draw(game.clone())).forget();
+      }
+    });
 
     cx.render(rsx! {
         div {
             canvas {
                 id: "canvas",
-                width: "1000",
-                height: "1000",
+                width: "1536",
+                height: "1536",
             }
-            // game1.with(|game1| format!("{}", game1))
-            // button {
-            //     onclick: move |_| game.with_mut(|game| draw(game)),
-            //     "Click me!"
-            // }
-            // button {
-            //     onclick: move |_| game.with_mut(|game| for _ in 0..10 {draw(game)}),
-            //     "Click me!"
-            // }
         }
     })
 }
