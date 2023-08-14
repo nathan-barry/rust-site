@@ -2,7 +2,7 @@ use std::str::FromStr;
 use std::rc::Rc;
 use dioxus::prelude::*;
 use wasm_bindgen::prelude::*;
-use web_sys::{HtmlCanvasElement, CanvasRenderingContext2d};
+use web_sys::{HtmlCanvasElement, CanvasRenderingContext2d, console};
 use wasm_bindgen::JsCast;
 use wasm_bindgen::closure::Closure;
 
@@ -23,8 +23,7 @@ impl Cell {
 }
 
 pub struct Game {
-    width: u32,
-    height: u32,
+    size: u32,
     cells: Vec<Cell>,
     // document: Document,
     canvas: HtmlCanvasElement,
@@ -37,19 +36,23 @@ pub struct Game {
 
 impl Game {
     fn new() -> Game {
-        let width = 100;
-        let height = 100;
+        let cell_size: f64 = 5.0;
+        let alive_color = String::from_str("#d4d4d4").unwrap();
+        let dead_color = String::from_str("#191919").unwrap();
+        let grid_color = String::from_str("#7f7f7f").unwrap();
 
-        let cells = (0..width * height)
-            .map(|i| {
-                if i % 2 == 0 || i % 9 == 0 {
-                    Cell::Alive
-                } else {
-                    Cell::Dead
-                }
-            }).collect();
+        let window = web_sys::window().unwrap();
+        let inner_size = window.inner_width().unwrap().as_f64().unwrap();
 
-        let document = web_sys::window().unwrap().document().unwrap();
+        // You can set canvas and grid dimensions based on the viewport
+        let canvas_size = if inner_size > (950.0) { 850 } else {(inner_size * 0.90) as u32};
+
+        let size = canvas_size / (cell_size+1.0) as u32; // Adjusting number of columns based on cell size
+
+        console::log_1(&JsValue::from_f64(size as f64));
+        console::log_1(&JsValue::from_f64(canvas_size as f64));
+
+        let document = window.document().unwrap();
         let canvas = document.get_element_by_id("canvas").unwrap();
         let canvas: HtmlCanvasElement = canvas
             .dyn_into()
@@ -62,16 +65,23 @@ impl Game {
             .dyn_into()
             .unwrap();
 
-        let cell_size: f64 = 5.0;
-        let alive_color = String::from_str("#d4d4d4").unwrap();
-        let dead_color = String::from_str("#191919").unwrap();
-        let grid_color = String::from_str("#7f7f7f").unwrap();
+        canvas.set_width(canvas_size);
+        canvas.set_height(canvas_size);
+
+        let cells: Vec<Cell> = (0..size * size)
+            .map(|i| {
+                if i % 12 == 0  || i % 13 == 0 || i % 17 == 0 || i % 19 == 0 {
+                    Cell::Alive
+                } else {
+                    Cell::Dead
+                }
+            }).collect();
+
+        console::log_1(&JsValue::from_f64(cells.len() as f64));
 
         Game {
-            width,
-            height,
+            size,
             cells,
-            // document,
             canvas,
             context,
             cell_size,
@@ -83,19 +93,19 @@ impl Game {
 
 
     fn get_index(&self, row: u32, col: u32) -> usize {
-        (row * self.width + col) as usize
+        (row * self.size + col) as usize
     }
 
     fn live_neighbor_count(&self, row: u32, col: u32) -> u8 {
         let mut count = 0;
-        for delta_row in [self.height - 1, 0, 1].iter().cloned() {
-            for delta_col in [self.width - 1, 0, 1].iter().cloned() {
+        for delta_row in [self.size - 1, 0, 1].iter().cloned() {
+            for delta_col in [self.size - 1, 0, 1].iter().cloned() {
                 if delta_row == 0 && delta_col == 0 {
                     continue;
                 }
 
-                let neighbor_row = (row + delta_row) % self.height;
-                let neighbor_col = (col + delta_col) % self.width;
+                let neighbor_row = (row + delta_row) % self.size;
+                let neighbor_col = (col + delta_col) % self.size;
                 let idx = self.get_index(neighbor_row, neighbor_col);
                 count += self.cells[idx] as u8;
             }
@@ -106,8 +116,8 @@ impl Game {
     fn tick(&mut self) {
         let mut next = self.cells.clone();
 
-        for row in 0..self.height{
-            for col in 0..self.width{
+        for row in 0..self.size{
+            for col in 0..self.size{
                 let idx = self.get_index(row, col);
                 let cell = self.cells[idx];
                 let live_neighbors = self.live_neighbor_count(row, col);
@@ -139,17 +149,17 @@ impl Game {
 
         ctx.begin_path();
         // Vertical lines.
-        for i in 0..=self.height{
+        for i in 0..=self.size{
             let i = i as f64;
             ctx.move_to(i * (cell_size + 1.0) + 1.0, 0.0);
-            ctx.line_to(i * (cell_size + 1.0) + 1.0, (cell_size + 1.0) * self.height as f64 + 1.0);
+            ctx.line_to(i * (cell_size + 1.0) + 1.0, (cell_size + 1.0) * self.size as f64 + 1.0);
         }
 
         // Horizontal lines.
-        for j in 0..=self.width as usize{
+        for j in 0..=self.size as usize{
             let j = j as f64;
             ctx.move_to(0.0,                           j * (cell_size + 1.0) + 1.0);
-            ctx.line_to((cell_size + 1.0) * self.width as f64 + 1.0, j * (cell_size + 1.0) + 1.0);
+            ctx.line_to((cell_size + 1.0) * self.size as f64 + 1.0, j * (cell_size + 1.0) + 1.0);
         }
 
         ctx.stroke();
@@ -160,8 +170,8 @@ impl Game {
         let cell_size = self.cell_size;
 
         ctx.begin_path();
-        for i in 0..self.height as usize {
-            for j in 0..self.width as usize{
+        for i in 0..self.size as usize {
+            for j in 0..self.size as usize{
                 let idx = self.get_index(i as u32, j as u32);
                 
                 ctx.set_fill_style(&JsValue::from_str(match self.cells[idx] {
@@ -212,12 +222,12 @@ fn draw_handler(game: Rc<RefCell<Game>>) {
 
         let row = match row {
             row if row == 0 => 1,
-            row if row == game.height-1 => game.height-2,
+            row if row == game.size-1 => game.size-2,
             row => row,
         };
         let col = match col {
             col if col == 0 => 1,
-            col if col == game.height-1 => game.height-2,
+            col if col == game.size-1 => game.size-2,
             col => col,
         };
 
@@ -244,6 +254,7 @@ fn draw_handler(game: Rc<RefCell<Game>>) {
 
 #[inline_props]
 pub fn GameOfLife(cx: Scope) -> Element {
+
     use_effect(cx, (), move |_| {
       async move {
         let game = Rc::new(RefCell::new(Game::new()));
@@ -258,15 +269,13 @@ pub fn GameOfLife(cx: Scope) -> Element {
         p { class: "mb-4",
             "Below is Conway's Game of Life, implemented in Rust and rendered on the front end via WebAssembly."
         }
-        p { class: "mb-16",
+        p { class: "mb-8 md:mb-16",
             "Click on a square to make it alive."
         }
         div {
             class: "mb-8 w-full flex justify-center",
             canvas {
                 id: "canvas",
-                width: "500",
-                height: "500",
             }
         }
     })
