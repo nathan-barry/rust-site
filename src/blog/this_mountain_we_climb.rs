@@ -1,14 +1,17 @@
 use dioxus::prelude::*;
 
-use crate::components::container::Container;
+use crate::components::{
+    container::Container,
+    blog_header::BlogHeader
+};
 
 #[inline_props]
 pub fn ThisMountainWeClimb(cx: Scope) -> Element {
     render! {
-        p { "2021-03-03" }
-        h1 { "This Mountain We Climb" },
-
-        p { class: "mt-8 mb-16", "Preface: This is a poem that I wrote my senior year of high school in AP Literature. It is one of the few pieces of work I have of when I was younger. Enjoy."
+        BlogHeader {
+           title: "This Mountain We Climb".into(),
+           subtitle: "This is a poem that I wrote my senior year of high school in AP Literature. It is one of the few written pieces I have of when I was younger. Enjoy.".into(),
+           attributes: "2021-03-03 * Finished".into()
         }
 
         Container {

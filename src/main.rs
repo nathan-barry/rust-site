@@ -15,6 +15,7 @@ use crate::components::header::Header;
 use crate::blog::{
     this_mountain_we_climb::ThisMountainWeClimb,
     geb_transformers::GEBTransformers,
+    summer_plan_2023::SummerPlan2023,
     test_post::TestPost,
 };
 
@@ -31,10 +32,13 @@ enum Route {
         #[route("/books")]
         Books {},
         // Not worth the time figuring out how to not do it this way
+        // BLOG
         #[route("/this-mountain-we-climb")]
         ThisMountainWeClimb {},
         #[route("/geb-transformers")]
         GEBTransformers {},
+        #[route("/summer-plan-2023")]
+        SummerPlan2023 {},
         #[route("/test-post")]
         TestPost {},
     #[end_layout]

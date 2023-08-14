@@ -22,9 +22,9 @@ module.exports = {
         // main: "#e5e9f0",
         // highlight: "#88c0d0",
         // Notion
+        dark: "#191919",
         main: "#d4d4d4",
         highlight: "#f7be71",
-        // highlight: "#88c0d0",
         grey: '#949494'
       },
       borderColor: {
@@ -39,6 +39,8 @@ module.exports = {
         // Notion
         dark: "#191919",
         grey: "#949494",
+        highlight: "#f7be71",
+        main: "#d4d4d4",
 
       },
     },

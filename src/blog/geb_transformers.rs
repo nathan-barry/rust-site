@@ -1,14 +1,17 @@
 use dioxus::prelude::*;
 
-use crate::components::container::Container;
+use crate::components::{
+    container::Container,
+    blog_header::BlogHeader
+};
 
 #[inline_props]
 pub fn GEBTransformers(cx: Scope) -> Element {
     render! {
-        h1 { class: "mt-24 mb-8 text-center", "Gödel Escher Bach, Quines, and Transformers" },
-
-        p { class: " text-center", "This article is absolute ass and I'm going to rip it to shreds and redo it."
-        p { class: "mt-8 mb-24 italic text-center", "2021-03-03 * Work in Progress" }
+        BlogHeader {
+           title: "Gödel Escher Bach, Quines, and Transformers".into(),
+           subtitle: "This article is absolute ass and I'm going to rip it to shreds and redo it.".into(),
+           attributes: "2021-03-03 * Work in Progress".into()
         }
 
         Container {

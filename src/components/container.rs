@@ -8,7 +8,7 @@ pub fn Container<'a>(cx: Scope, header: String, children: Element<'a>) -> Elemen
                 "{header}"
             }
             div { class: "border-b" }
-            div { class: "ml-4 mt-4",
+            div { class: "ml-4 mt-8 mb-16",
                 children
             }
         }

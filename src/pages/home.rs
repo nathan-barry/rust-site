@@ -67,13 +67,13 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: "RECENT".into(),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::ThisMountainWeClimb {},
-                                "[This Mountain We Climb]"
+                            Link { to:Route::GEBTransformers {},
+                                "[Gödel Escher Bach, Quines, and Transformers]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "[Gödel Escher Bach, Quines, and Transformers]"
+                            Link { to:Route::ThisMountainWeClimb {},
+                                "[This Mountain We Climb]"
                             }
                         },
                     }
@@ -99,17 +99,29 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: "MISC".into(),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::ThisMountainWeClimb {},
-                                "[This Mountain We Climb]"
-                            }
-                        },
-                        p { class: "text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
                                 "[Gödel Escher Bach, Quines, and Transformers]"
                             }
                         },
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:Route::ThisMountainWeClimb {},
+                                "[This Mountain We Climb]"
+                            }
+                        },
                     }
                 }
+
+                Column {
+                    Container {
+                        header: "LIFE".into(),
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:Route::SummerPlan2023 {},
+                                "[2023 Summer Plan]"
+                            }
+                        },
+                    }
+                }
+
             }
         }
     }
