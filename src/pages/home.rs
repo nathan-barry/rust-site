@@ -1,5 +1,5 @@
 use crate::Route;
-use crate::components::{container::Container, column::Column};
+use crate::components::{container::Container, column::Column, quote::Quote};
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
@@ -16,18 +16,16 @@ pub fn Home(cx: Scope) -> Element {
                     to:"https://www.utexas.edu/",
                     "UT Austin"
                 }
-                ". I enjoy machine learning, pure math, and coding things in rust."
+                ". I enjoy machine learning, pure math, and coding things in " span { class: "text-highlight","rust."} 
             }
             p { 
                 "This entire website is written in rust which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
             }
 
             // Quote
-            p { class: "m-16 mb-0 text-center italic text-grey",
-                "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\""
-            }
-            p { class: "m-16 mt-2 text-right italic text-lg text-grey",
-                "Félix Martí-Ibáñez"
+            Quote {
+                quote: String::from("\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\""),
+                author: String::from("Félix Martí-Ibáñez")
             }
 
 
@@ -70,12 +68,12 @@ pub fn Home(cx: Scope) -> Element {
                         header: String::from("RECENT"),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                     }
@@ -86,12 +84,12 @@ pub fn Home(cx: Scope) -> Element {
                         header: String::from("RUST"),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                     }
@@ -102,12 +100,12 @@ pub fn Home(cx: Scope) -> Element {
                         header: String::from("MISC"),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[PLACE HOLDER]"
+                                "[Place Holder]"
                             }
                         },
                     }

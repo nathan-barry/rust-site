@@ -17,7 +17,7 @@ pub fn Books(cx: Scope) -> Element {
             thoughts on the book :)"
         }
 
-        h2 { class: "mt-16", "[2023 | Age 20]" }
+        h2 { class: "mt-16 mb-5", "[2023 | Age 20]" }
 
         Book {
             number: 130,
@@ -235,7 +235,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from("I actually read this book when I was in middle school. I forgot about it and, with my current setup of the website, if I wanted to add it in correct chronological order, I'd have to manually increment each book number by one (so I'd have to do this about a hundred times). I'm just gonna put it here. This spot was actually the giver, but when I moved from my old react website to here I actually put the giver at like #4 but forgot to remove this so everything above was incremented by one. I just placed the old Giver spot with this. I'm surprised I forgot about it, it was my favorite book for the longest time."),
         }
 
-        h2 { class: "mt-16", "[2022 | Age 19]" }
+        h2 { class: "mt-16 mb-5", "[2022 | Age 19]" }
 
         Book {
             number: 103,
@@ -349,7 +349,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from("I think that this is an important book for everyone to read. I disagreed with a lot of things and the book is very heavily biased, but as Zinn points out himself, it is to give the counterview of the majority of mainstream history."),
         }
 
-        h2 { class: "mt-16", "[2021 | Age 18]" }
+        h2 { class: "mt-16 mb-5", "[2021 | Age 18]" }
 
         Book {
             number: 89,
@@ -607,7 +607,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from(""),
         }
 
-        h2 { class: "mt-16", "[2020 | Age 17]" }
+        h2 { class: "mt-16 mb-5", "[2020 | Age 17]" }
 
         Book {
             number: 57,
@@ -761,7 +761,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from(""),
         }
 
-        h2 { class: "mt-16", "[2019 | Age 16]" }
+        h2 { class: "mt-16 mb-5", "[2019 | Age 16]" }
 
         Book {
             number: 38,
@@ -931,7 +931,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from(""),
         }
 
-        h2 { class: "mt-16", "[2018 | Age 15]" }
+        h2 { class: "mt-16 mb-5", "[2018 | Age 15]" }
 
         Book {
             number: 17,
@@ -1013,7 +1013,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from(""),
         }
 
-        h2 { class: "mt-16", "[2017 | Age 14]" }
+        h2 { class: "mt-16 mb-5", "[2017 | Age 14]" }
         // Book {
         //     number: ,
         //     title: String::from(""),
@@ -1070,7 +1070,7 @@ pub fn Books(cx: Scope) -> Element {
             description: String::from(""),
         }
 
-        h2 { class: "mt-16", "[2016 | Age 13]" }
+        h2 { class: "mt-16 mb-5", "[2016 | Age 13]" }
 
         Book {
             number: 1,
