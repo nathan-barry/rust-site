@@ -60,7 +60,7 @@ pub fn Home(cx: Scope) -> Element {
             }
 
             // Blog
-            h1{ class: "mt-16", "BLOG"}
+            // h1{ class: "mt-16", "BLOG"}
 
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
                 Column {
