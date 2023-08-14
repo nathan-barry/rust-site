@@ -16,15 +16,16 @@ pub fn Book(
         (_, d) if d.len() != 0 => "mt-4 mb-4 hover:font-bold",
         (_, _) => "mt-4 mb-4"
     };
+    let star = if description.len() != 0 {" *"} else {""};
+
     if *toggle.get() && description.len() != 0 {
         render! {
             div {
                 onclick: move |_| toggle.set(!toggle),
                 class: styles,
-                "{number}. " b{"{title}"} " - {author}"
-                if description.len() != 0 {" *"}
+                "{number}. " b{"{title}"} " - {author} *"
             }
-            div { class:"ml-8 mb-8",
+            div { class:"ml-2 md:ml-8 mb-8",
                 onclick: move |_| toggle.set(!toggle),
             style: "white-space: pre-line", "{description}" }
         }
@@ -33,8 +34,7 @@ pub fn Book(
             div {
                 onclick: move |_| toggle.set(!toggle),
                     class: styles,
-                    "{number}. " b{"{title}"} " - {author}"
-                    if description.len() != 0 {" *"}
+                    "{number}. " b{"{title}"} " - {author}{star}"
             }
         }
     }
