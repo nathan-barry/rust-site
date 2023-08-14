@@ -67,13 +67,13 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: String::from("RECENT"),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"/" {},
-                                "[Place Holder]"
+                            Link { to:Route::ThisMountainWeClimb {},
+                                "[This Mountain We Climb]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"/" {},
-                                "[Place Holder]"
+                            Link { to:Route::TestPost {},
+                                "[Test Post]"
                             }
                         },
                     }

@@ -3,6 +3,7 @@
 mod projects;
 mod pages;
 mod components;
+mod blog;
 
 use crate::projects::game_of_life::GameOfLife;
 use crate::pages::{
@@ -11,6 +12,11 @@ use crate::pages::{
     page_not_found::PageNotFound
 };
 use crate::components::header::Header;
+use crate::blog::{
+    this_mountain_we_climb::ThisMountainWeClimb,
+    test_post::TestPost
+};
+
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
@@ -23,8 +29,12 @@ enum Route {
         GameOfLife {},
         #[route("/books")]
         Books {},
+        // Not worth the time figuring out how to not do it this way
+        #[route("/this-mountain-we-climb")]
+        ThisMountainWeClimb {},
+        #[route("/test-post")]
+        TestPost {},
     #[end_layout]
-    // PageNotFound is a catch all route that will match any route and placing the matched segments in the route field
     #[route("/:..route")]
     PageNotFound { route: Vec<String> },
 }
