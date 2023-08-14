@@ -7,10 +7,10 @@ pub fn Quote(
     author: String, 
 ) -> Element {
     render! {
-        p { class: "m-16 mb-0 text-center italic text-grey",
+        p { class: "mx-4 mt-8 md:mx-16 md:mt-16 md:text-center italic text-grey",
             "{quote}"
         }
-        p { class: "m-16 mt-2 text-right italic text-lg text-grey",
+        p { class: "mx-4 mt-2 mb-8 md:mx-16 md:mb-16 text-right italic text-lg text-grey",
             "{author}"
         }
     }
