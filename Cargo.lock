@@ -498,18 +498,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "game-of-life"
-version = "0.1.0"
-dependencies = [
- "dioxus",
- "dioxus-router",
- "dioxus-web",
- "gloo-timers 0.3.0",
- "wasm-bindgen",
- "web-sys",
-]
-
-[[package]]
 name = "getrandom"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -835,6 +823,18 @@ name = "memchr"
 version = "2.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2dffe52ecf27772e601905b7522cb4ef790d2cc203488bbd0e2fe85fcb74566d"
+
+[[package]]
+name = "nathanrs"
+version = "0.1.0"
+dependencies = [
+ "dioxus",
+ "dioxus-router",
+ "dioxus-web",
+ "gloo-timers 0.3.0",
+ "wasm-bindgen",
+ "web-sys",
+]
 
 [[package]]
 name = "num-traits"

@@ -19,7 +19,7 @@ pub fn Home(cx: Scope) -> Element {
                 ". I enjoy machine learning, pure math, and coding things in rust."
             }
             p { 
-                "This entire website is written in rust which allows me to show some of my projects here via compiling them to WebAssembly. You can also read some of my blog posts below."
+                "This entire website is written in rust which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
             }
 
             // Quote
