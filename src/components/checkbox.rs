@@ -8,7 +8,7 @@ pub fn Checkbox(cx: Scope, text: String, checked: bool) -> Element {
                 class: "flex mt-1",
 
                 div { 
-                    class: "mt-1 w-4 h-4 mr-4 border flex items-center justify-center bg-grey",
+                    class: "mt-1 w-4 h-4 mr-4 flex text-main items-center justify-center bg-grey",
                     "\u{2714}" 
                 }
                 "{text}"
