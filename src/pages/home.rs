@@ -1,5 +1,5 @@
 use crate::Route;
-use crate::components::text_box::Container;
+use crate::components::{container::Container, column::Column};
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
@@ -21,8 +21,15 @@ pub fn Home(cx: Scope) -> Element {
                 "This entire website is written in rust, which allows me to show some of my projects here via WebAssembly. You can also find some of my blog posts."
             }
 
-            div { class: "container mx-auto flex flex-col md:flex-row md:flex-wrap gap-x-8",
-                div { class: "mt-8 lg:w-1/3",
+            p { class: "m-16 mb-0 text-center italic text-grey",
+                "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\""
+            }
+            p { class: "m-16 mt-2 text-right italic text-lg text-grey",
+                "Félix Martí-Ibáñez"
+            }
+
+            div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+                Column {
                     Container {
                         header: String::from("PERSONAL"),
                         p { class: "text-bold hover:text-highlight",
@@ -38,7 +45,7 @@ pub fn Home(cx: Scope) -> Element {
                     }
                 }
 
-                div { class: "mt-8 lg:w-1/3",
+                Column {
                     Container {
                         header: String::from("PROJECTS"),
                         p { class: "text-bold hover:text-highlight",
@@ -50,13 +57,31 @@ pub fn Home(cx: Scope) -> Element {
                 }
             }
 
-            div { class: "container mx-auto flex flex-col md:flex-row md:flex-wrap gap-x-8",
-                div { class: "mt-8 lg:w-1/3",
+            h1{ class: "mt-16", "BLOG"}
+
+            div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+                Column {
                     Container {
                         header: String::from("RECENT"),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"https://github.com/nathan-barry" {},
                                 "[Introduction to Dioxus]"
+                            }
+                        },
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:"google.com" {},
+                                "[Favorite Books test test test test test test]"
+                            }
+                        },
+                    }
+                }
+
+                Column {
+                    Container {
+                        header: String::from("RUST"),
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:"https://github.com/nathan-barry" {},
+                                "[Github]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
@@ -67,7 +92,7 @@ pub fn Home(cx: Scope) -> Element {
                     }
                 }
 
-                div { class: "mt-8 lg:w-1/3",
+                Column {
                     Container {
                         header: String::from("Rust"),
                         p { class: "text-bold hover:text-highlight",

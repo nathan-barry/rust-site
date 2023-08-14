@@ -62,7 +62,7 @@ impl Game {
             .dyn_into()
             .unwrap();
 
-        let cell_size: f64 = 12.0;
+        let cell_size: f64 = 5.0;
         let alive_color = String::from_str("#d4d4d4").unwrap();
         let dead_color = String::from_str("#191919").unwrap();
         let grid_color = String::from_str("#7f7f7f").unwrap();
@@ -255,11 +255,18 @@ pub fn GameOfLife(cx: Scope) -> Element {
     });
 
     cx.render(rsx! {
+        p { class: "mb-4",
+            "Below is Conway's Game of Life, implemented in Rust and rendered on the front end via WebAssembly."
+        }
+        p { class: "mb-16",
+            "Click on a square to make it alive."
+        }
         div {
+            class: "mb-8 w-full flex justify-center",
             canvas {
                 id: "canvas",
-                width: "1536",
-                height: "1536",
+                width: "500",
+                height: "500",
             }
         }
     })

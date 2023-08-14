@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 pub fn Container<'a>(cx: Scope, header: String, children: Element<'a>) -> Element {
     render! {
         div {
-            h2 { class: "hover:text-highlight",
+            h2 { 
                 "{header}"
             }
             div { class: "border-b" }
