@@ -466,8 +466,15 @@ li {
 }
 
 p {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 *, ::before, ::after {
@@ -642,8 +649,8 @@ p {
   margin-bottom: 2rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
 .ml-8 {
@@ -824,6 +831,10 @@ p {
 
   .md\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .md\:ml-4 {
+    margin-left: 1rem;
   }
 
   .md\:mt-16 {
