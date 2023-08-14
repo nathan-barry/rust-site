@@ -8,6 +8,7 @@ use dioxus_router::prelude::*;
 pub fn Home(cx: Scope) -> Element {
     render! {
         div {
+            // First paragraph
             p { class: "mb-4",
                 "This is the WEBSITE of " b { "Nathan Barry" } ". I am a Computer Science and Mathematics major at " 
                 Link {
@@ -18,9 +19,10 @@ pub fn Home(cx: Scope) -> Element {
                 ". I enjoy machine learning, pure math, and coding things in rust."
             }
             p { 
-                "This entire website is written in rust, which allows me to show some of my projects here via WebAssembly. You can also find some of my blog posts."
+                "This entire website is written in rust which allows me to show some of my projects here via compiling them to WebAssembly. You can also read some of my blog posts below."
             }
 
+            // Quote
             p { class: "m-16 mb-0 text-center italic text-grey",
                 "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\""
             }
@@ -28,6 +30,8 @@ pub fn Home(cx: Scope) -> Element {
                 "Félix Martí-Ibáñez"
             }
 
+
+            // Links
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
                 Column {
                     Container {
@@ -57,6 +61,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
             }
 
+            // Blog
             h1{ class: "mt-16", "BLOG"}
 
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
@@ -64,13 +69,13 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: String::from("RECENT"),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"https://github.com/nathan-barry" {},
-                                "[Introduction to Dioxus]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"google.com" {},
-                                "[Favorite Books test test test test test test]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                     }
@@ -80,13 +85,13 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: String::from("RUST"),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"https://github.com/nathan-barry" {},
-                                "[Github]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"google.com" {},
-                                "[Favorite Books]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                     }
@@ -94,15 +99,15 @@ pub fn Home(cx: Scope) -> Element {
 
                 Column {
                     Container {
-                        header: String::from("Rust"),
+                        header: String::from("MISC"),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"https://github.com/nathan-barry" {},
-                                "[Github]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"google.com" {},
-                                "[Favorite Books]"
+                            Link { to:"/" {},
+                                "[PLACE HOLDER]"
                             }
                         },
                     }
@@ -111,10 +116,3 @@ pub fn Home(cx: Scope) -> Element {
         }
     }
 }
-// <p>20 year old dev, CS & Math @ UT Austin</p>
-//       <p>{"{Slowly amassing skills}"}</p>
-
-//       <p className="mt-6 font-bold">Info:</p>
-//       <Link href="https://github.com/nathan-barry">
-//         <p className="hover:text-hover">- Github</p>
-//       </Link>
