@@ -12,11 +12,21 @@ pub fn Books(cx: Scope) -> Element {
         p { class: "mb-16",
             "Those highlighted "
             span { class: "text-highlight", "blue"} " were those I particularly enjoyed or
-            found impactful. An asterisk (*) indicates you can click to see some of my
+            found impactful. An asterisk (*) indicates you can " span{ class: "italic", "click" }
+            " to see some of my
             thoughts on the book :)"
         }
 
         h2 { "[2023 | Age 20]" }
+
+        Book {
+            number: 2,
+            title: String::from("Test"),
+            author: String::from("Test"),
+            special: false,
+            description: String::from("This has a description
+                                      This has a de"),
+        }
 
         Book {
             number: 1,
