@@ -24,8 +24,8 @@ pub fn Home(cx: Scope) -> Element {
 
             // Quote
             Quote {
-                quote: String::from("\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\""),
-                author: String::from("Félix Martí-Ibáñez")
+                quote: "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\"".into(),
+                author: "Félix Martí-Ibáñez".into()
             }
 
 
@@ -33,7 +33,7 @@ pub fn Home(cx: Scope) -> Element {
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
                 Column {
                     Container {
-                        header: String::from("PERSONAL"),
+                        header: "PERSONAL".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"https://github.com/nathan-barry" {},
                                 "[Github]"
@@ -49,7 +49,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 Column {
                     Container {
-                        header: String::from("PROJECTS"),
+                        header: "PROJECTS".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::GameOfLife {},
                                 "[Conway's Game of Life]"
@@ -65,15 +65,15 @@ pub fn Home(cx: Scope) -> Element {
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
                 Column {
                     Container {
-                        header: String::from("RECENT"),
+                        header: "RECENT".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},
                                 "[This Mountain We Climb]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::TestPost {},
-                                "[Test Post]"
+                            Link { to:Route::GEBTransformers {},
+                                "[Gödel Escher Bach, Quines, and Transformers]"
                             }
                         },
                     }
@@ -81,7 +81,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 Column {
                     Container {
-                        header: String::from("RUST"),
+                        header: "RUST".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
                                 "[Place Holder]"
@@ -97,15 +97,15 @@ pub fn Home(cx: Scope) -> Element {
 
                 Column {
                     Container {
-                        header: String::from("MISC"),
+                        header: "MISC".into(),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"/" {},
-                                "[Place Holder]"
+                            Link { to:Route::ThisMountainWeClimb {},
+                                "[This Mountain We Climb]"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"/" {},
-                                "[Place Holder]"
+                            Link { to:Route::GEBTransformers {},
+                                "[Gödel Escher Bach, Quines, and Transformers]"
                             }
                         },
                     }

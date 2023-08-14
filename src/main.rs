@@ -14,7 +14,8 @@ use crate::pages::{
 use crate::components::header::Header;
 use crate::blog::{
     this_mountain_we_climb::ThisMountainWeClimb,
-    test_post::TestPost
+    geb_transformers::GEBTransformers,
+    test_post::TestPost,
 };
 
 use dioxus::prelude::*;
@@ -32,6 +33,8 @@ enum Route {
         // Not worth the time figuring out how to not do it this way
         #[route("/this-mountain-we-climb")]
         ThisMountainWeClimb {},
+        #[route("/geb-transformers")]
+        GEBTransformers {},
         #[route("/test-post")]
         TestPost {},
     #[end_layout]
