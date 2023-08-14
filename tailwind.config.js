@@ -14,16 +14,17 @@ module.exports = {
       },
       textColor: {
         // main: "#FFFFFF",
-        // hover: "#33FF00",
+        // highlight: "#33FF00",
         // Gruvbox
         // main: "#fbf1c7",
-        // hover: "#fe8019",
+        // highlight: "#fe8019",f7be71
         // Nord
         // main: "#e5e9f0",
         // highlight: "#88c0d0",
         // Notion
         main: "#d4d4d4",
-        highlight: "#88c0d0",
+        highlight: "#f7be71",
+        // highlight: "#88c0d0",
         grey: '#949494'
       },
       borderColor: {

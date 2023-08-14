@@ -9,36 +9,32 @@ pub fn Book(
     special: bool, 
     description: String
 ) -> Element {
-    let toggle = use_state(cx, || true);
+    let toggle = use_state(cx, || false);
     let styles = match (*special, description) {
-        (s, d) if s && d.len() != 0 => "m-4 text-highlight hover:font-bold",
-        (s, _) if s => "m-4 text-highlight",
-        (_, d) if d.len() != 0 => "m-4 hover:font-bold",
-        (_, _) => "m-4"
+        (s, d) if s && d.len() != 0 => "mt-4 mb-4 text-highlight hover:font-bold",
+        (s, _) if s => "mt-4 mb-4 text-highlight",
+        (_, d) if d.len() != 0 => "mt-4 mb-4 hover:font-bold",
+        (_, _) => "mt-4 mb-4"
     };
-    if *toggle.get() {
+    if *toggle.get() && description.len() != 0 {
         render! {
             div {
-                    class: styles,
-                    onclick: move |_| toggle.set(!toggle),
-
-                p { 
-                    "{number}. " b{"{title}"} " - {author}"
-                    if description.len() != 0 {" *"}
-                },
+                onclick: move |_| toggle.set(!toggle),
+                class: styles,
+                "{number}. " b{"{title}"} " - {author}"
+                if description.len() != 0 {" *"}
             }
+            div { class:"ml-8 mb-8",
+                onclick: move |_| toggle.set(!toggle),
+            style: "white-space: pre-line", "{description}" }
         }
     } else {
         render!{
             div {
-                class: styles,
                 onclick: move |_| toggle.set(!toggle),
-
-                p { 
+                    class: styles,
                     "{number}. " b{"{title}"} " - {author}"
                     if description.len() != 0 {" *"}
-                },
-                p { class:"m-4 mb-8", style: "white-space: pre-line", "{description}" }
             }
         }
     }
