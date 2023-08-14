@@ -8,7 +8,7 @@ name = "nathanrs"
 default_platform = "web"
 
 # `build` & `serve` dist path
-out_dir = ""
+out_dir = "docs"
 
 # resource (public) file folder
 asset_dir = "public"
@@ -17,6 +17,8 @@ asset_dir = "public"
 
 # HTML title tag content
 title = "nathan.rs"
+
+base_path = "nathanrs"
 
 [web.watcher]
 
