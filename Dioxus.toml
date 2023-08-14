@@ -18,7 +18,7 @@ asset_dir = "public"
 # HTML title tag content
 title = "nathan.rs"
 
-base_path = "nathanrs"
+base_path = "docs"
 
 [web.watcher]
 
