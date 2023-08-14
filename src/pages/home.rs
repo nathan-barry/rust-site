@@ -42,7 +42,7 @@ pub fn Home(cx: Scope) -> Element {
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"google.com" {},
+                            Link { to:Route::Books {},
                                 "[Favorite Books]"
                             }
                         },

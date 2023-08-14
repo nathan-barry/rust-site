@@ -612,6 +612,10 @@ p {
   margin: 4rem;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -647,10 +651,6 @@ p {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .mt-8 {
@@ -737,6 +737,11 @@ p {
 .text-grey {
   --tw-text-opacity: 1;
   color: rgb(148 148 148 / var(--tw-text-opacity));
+}
+
+.text-highlight {
+  --tw-text-opacity: 1;
+  color: rgb(136 192 208 / var(--tw-text-opacity));
 }
 
 .text-main {
