@@ -18,8 +18,6 @@ asset_dir = "public"
 # HTML title tag content
 title = "nathan.rs"
 
-base_path = "docs"
-
 [web.watcher]
 
 # when watcher trigger, regenerate the `index.html`
