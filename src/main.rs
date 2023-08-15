@@ -9,7 +9,8 @@ use crate::projects::game_of_life::GameOfLife;
 use crate::pages::{
     home::Home,
     books::Books,
-    page_not_found::PageNotFound
+    page_not_found::PageNotFound,
+    about_me::AboutMe,
 };
 use crate::components::header::Header;
 use crate::blog::{
@@ -31,6 +32,8 @@ enum Route {
         GameOfLife {},
         #[route("/books")]
         Books {},
+        #[route("/about")]
+        AboutMe {},
         // Not worth the time figuring out how to not do it this way
         // BLOG
         #[route("/this-mountain-we-climb")]

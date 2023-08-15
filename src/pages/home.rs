@@ -34,20 +34,21 @@ pub fn Home(cx: Scope) -> Element {
                 author: "Félix Martí-Ibáñez".into()
             }
 
-            // LINKS
-            div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+
+
+            div { class: "flex flex-col md:flex-row md:flex-wrap",
                 // PERSONAL
                 Column {
                     Container {
                         header: "PERSONAL".into(),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:"https://github.com/nathan-barry" {},
-                                "[Github]"
+                            Link { to:Route::AboutMe {},
+                                "\u{2727} About Me"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::Books {},
-                                "[Favorite Books]"
+                                "\u{2727} Favorite Books"
                             }
                         },
                     }
@@ -58,22 +59,36 @@ pub fn Home(cx: Scope) -> Element {
                         header: "PROJECTS".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::GameOfLife {},
-                                "[Conway's Game of Life]"
+                                "\u{2727} Conway's Game of Life"
+                            }
+                        },
+                    }
+                }
+                Column {
+                    Container {
+                        header: "LINKS".into(),
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:"https://github.com/nathan-barry" {},
+                                "\u{2751} Github"
                             }
                         },
                     }
                 }
             }
 
-            // Blog
-            div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+
+            h2 { class:"mt-8 mb-16 text-center", "\u{2735} \u{2735} \u{2735}"}
+            
+
+            // BLOG
+            div { class: "flex flex-col md:flex-row md:flex-wrap",
                 // RECENT
                 Column {
                     Container {
                         header: "RECENT".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
-                                "[Gödel, Escher, Bach & Transformers]"
+                                "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
                         },
                     }
@@ -85,12 +100,12 @@ pub fn Home(cx: Scope) -> Element {
                         header: "RUST".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[Place Holder]"
+                                "\u{2727} Website Implementation"
                             }
                         },
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "[Place Holder]"
+                                "\u{2727} Conway's Game of Life"
                             }
                         },
                     }
@@ -102,7 +117,18 @@ pub fn Home(cx: Scope) -> Element {
                         header: "LIFE".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::SummerPlan2023 {},
-                                "[2023 Summer Plan]"
+                                "\u{2727} 2023 Summer Plan"
+                            }
+                        },
+                    }
+                }
+
+                Column {
+                    Container {
+                        header: "ML".into(),
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:Route::GEBTransformers {},
+                                "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
                         },
                     }
@@ -113,13 +139,8 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: "MISC".into(),
                         p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "[Gödel, Escher, Bach & Transformers]"
-                            }
-                        },
-                        p { class: "text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},
-                                "[This Mountain We Climb]"
+                                "\u{2727} This Mountain We Climb"
                             }
                         },
                     }
