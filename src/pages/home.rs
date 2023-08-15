@@ -10,16 +10,22 @@ pub fn Home(cx: Scope) -> Element {
         div {
             // First paragraph
             p { class: "mb-4",
-                "This is the WEBSITE of " b { "Nathan Barry" } ". I am a Computer Science and Mathematics major at " 
+                "THIS IS THE WEBSITE of " b { "Nathan Barry" } ". There are many like it, but this one is " i { "mine" } ". I am a Computer Science and Mathematics major at " 
                 Link {
                     class: "underline underline-offset-4 hover:text-highlight",
                     to:"https://www.utexas.edu/",
                     "UT Austin"
                 }
-                ". I enjoy machine learning, pure math, and coding things in " span { class: "text-highlight","rust."} 
+                "."
             }
             p { 
-                "This entire website is written in rust which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
+                "This entire website is written in "
+                Link {
+                    class: "underline underline-offset-4 hover:text-highlight",
+                    to:"https://www.arewewebyet.org/",
+                    "Rust"
+                }
+                " which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
             }
 
             // Quote
