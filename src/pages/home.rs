@@ -34,9 +34,9 @@ pub fn Home(cx: Scope) -> Element {
                 author: "Félix Martí-Ibáñez".into()
             }
 
-
-            // Links
+            // LINKS
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+                // PERSONAL
                 Column {
                     Container {
                         header: "PERSONAL".into(),
@@ -52,7 +52,7 @@ pub fn Home(cx: Scope) -> Element {
                         },
                     }
                 }
-
+                // PROJECTS
                 Column {
                     Container {
                         header: "PROJECTS".into(),
@@ -66,25 +66,20 @@ pub fn Home(cx: Scope) -> Element {
             }
 
             // Blog
-            // h1{ class: "mt-16", "BLOG"}
-
             div { class: "flex flex-col md:flex-row md:flex-wrap gap-x-8",
+                // RECENT
                 Column {
                     Container {
                         header: "RECENT".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
-                                "[Gödel Escher Bach, Quines, and Transformers]"
-                            }
-                        },
-                        p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::ThisMountainWeClimb {},
-                                "[This Mountain We Climb]"
+                                "[Gödel, Escher, Bach & Transformers]"
                             }
                         },
                     }
                 }
 
+                // RUST
                 Column {
                     Container {
                         header: "RUST".into(),
@@ -101,28 +96,30 @@ pub fn Home(cx: Scope) -> Element {
                     }
                 }
 
-                Column {
-                    Container {
-                        header: "MISC".into(),
-                        p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "[Gödel Escher Bach, Quines, and Transformers]"
-                            }
-                        },
-                        p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::ThisMountainWeClimb {},
-                                "[This Mountain We Climb]"
-                            }
-                        },
-                    }
-                }
-
+                // LIFE
                 Column {
                     Container {
                         header: "LIFE".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:Route::SummerPlan2023 {},
                                 "[2023 Summer Plan]"
+                            }
+                        },
+                    }
+                }
+
+                // MISC
+                Column {
+                    Container {
+                        header: "MISC".into(),
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:Route::GEBTransformers {},
+                                "[Gödel, Escher, Bach & Transformers]"
+                            }
+                        },
+                        p { class: "text-bold hover:text-highlight",
+                            Link { to:Route::ThisMountainWeClimb {},
+                                "[This Mountain We Climb]"
                             }
                         },
                     }

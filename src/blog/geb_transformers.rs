@@ -2,45 +2,93 @@ use dioxus::prelude::*;
 
 use crate::components::{
     container::Container,
-    blog_header::BlogHeader
+    blog_header::BlogHeader,
+    quote::Quote
 };
 
 #[inline_props]
 pub fn GEBTransformers(cx: Scope) -> Element {
     render! {
         BlogHeader {
-           title: "Gödel Escher Bach, Quines, and Transformers".into(),
-           subtitle: "This article is absolute ass and I'm going to rip it to shreds and redo it.".into(),
+           title: "Gödel Escher Bach, Self-Reference, and Transformers".into(),
+           subtitle: "Exploring Consciousness and Intelligence: A Journey Through Gödel's Incompleteness, Strange Loops, and the Future of Language Models".into(),
            attributes: "2021-03-03 * Work in Progress".into()
         }
 
         Container {
-            header: "Gödel Escher Bach, Quines, and Transformers".into(),
+            header: "The Early Days".into(),
             p { 
                 class: "mt-8 mb-16",
                 style: "white-space: pre-line",
 
-                "In the worlds of artificial intelligence and machine learning, the scope of what is possible continues to expand. State-of-the-art large language models (LLMs) have already demonstrated remarkable capabilities in terms of learning from input and generating relevant output. But one area that hasn't been fully explored yet is the concept of self-aware transformers: models that understand their own architecture, memory system, limitations, and capabilities.
+                "When I was in high school, I was absolutely fascinated with AI. I spent all of my time free time investigating different kinds of machine learning model architectures and the rate fields like computer vision and natural language processing were progressing. I don’t know what started the fascination, but what fueled it was Ray Kurzweil, Lex Fridman, Andrew Ng, Nick Bostrom, and all others that produced books, online courses, and ideas on the matter.
 
-                This idea of self-reference in systems, while revolutionary for AI, is not new in other domains. Mathematical logic and cognitive science have long been fascinated with self-reference, and these concepts are notably discussed in Douglas Hofstadter's Pulitzer Prize-winning book, \"Gödel, Escher, Bach: An Eternal Golden Braid.\""
+                I first got started around the time OpenAI’s GPT-2 was released. I remember hearing people’s sentiments at the time. Most people thought that something as capable as GPT-4 wasn’t going to happen within the next two decades. And yet, here we are.
+
+                In the worlds of artificial intelligence and machine learning, the scope of what is possible continues to expand. State-of-the-art large language models (LLMs) have already demonstrated remarkable capabilities in terms of learning from input and generating relevant output, but they still seem to be missing something to make them truly “alive”."
             }
         }
 
         Container {
-            header: "The LLMs Agent Innovation and Limitations".into(),
+            header: "Gödel Escher Bach and Strange Loops".into(),
             p { 
                 class: "mt-8 mb-16",
                 style: "white-space: pre-line",
 
-                "Most present-day large language model agents operate on a system involving a vector database that acts as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to \"learn\" and respond to new information in a contextually appropriate manner.
+                "Not too long ago, I was recommended the book \"Gödel, Escher, Bach\" by Douglas Hofstadter. The book, at its core, is about how intelligent systems arise out of nothing, or in the words of the author,"
+            }
 
-                However, this advanced system still lacks one crucial aspect of intelligence – self-awareness. These models don't understand their own architecture, operation, or the systems they’re embedded within. They can interact with APIs and handle complex tasks, yet they are blind to their own internal mechanics.
+            p {    
+                class: "mx-4 md:text-center italic text-grey",
+                "\"GEB was inspired by my long-held conviction that the \"strange loop\" notion holds the key to unraveling the mystery that we conscious beings call \"being\" or \"consciousness.\"\""
+            }
 
-                This limitation is critical, as a system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. They cannot dynamically adapt to new scenarios that require an internal modification of their operation.
+            p {
+                class: "mx-4 mt-8 mb-16 md:text-center italic text-grey",
+                "\"The Godelian strange loop that arises in formal systems in mathematics (i.e., collections of rules for churning out an endless series of mathematical truths solely by mechanical symbol-shunting without any regard to meanings or ideas hidden in the shapes being manipulated) is a loop that allows such a system to \"perceive itself\", to talk about itself, to become \"self-aware\", and in a sense it would not be going too far to say that by virtue of having such a loop, a formal system acquires a self.\""
+            }
 
-                Even when interacting with external APIs or systems, their potential for efficiency and efficacy is compromised due to this lack of self-knowledge. Just like a mechanic who knows how to change a tire but doesn't understand how an engine works can only go so far in repairing a vehicle, an LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. It cannot innovate or optimize beyond its initial programming, thereby limiting the range of complex actions it can perform.
 
-                In essence, without the ability to understand and modify their own internal mechanics, the current state of LLMs restricts their full potential in responding to, learning from, and navigating within their system environment. Therefore, introducing self-awareness and the ability to self-modify into these models could dramatically enhance their capabilities and performance."
+
+            p {
+                class: "mt-8 mb-8",
+                style: "white-space: pre-line",
+
+                "This Godelian strange loop he is referring to is Godel’s incompleteness theorem, which uses self-referencing meta-mathematical statements to prove that within any consistent formal system that is capable of arithmetic, there will be true statements that cannot be proved within the system. These theorems bring to light the inherent limitations of formal mathematical systems and shook the mathematical world’s understanding of truth and consistency in formal systems."
+
+                "The proof essentially creates a mathematical statement that refers to itself, similar to the paradoxical statement \"This sentence is false.\" This kind of self-reference leads to a strange loop.
+
+                Hofstadter sees this self-referential quality in Gödel's theorems as analogous to the nature of consciousness. A conscious being is able to reflect upon itself, to perceive itself, and even to model its thoughts and thinking processes. This self-awareness can be seen as a form of strange loop, where the mind simultaneously stands above and below itself in a hierarchy, observing and being observed, thinking and being thought about.
+
+                For Hofstadter, the strange loops that arise in Gödel's theorems are more than mere mathematical curiosities; they serve as a metaphor or model for understanding how consciousness arises. The self-referential structures in mathematics are seen as echoing the self-referential nature of thought, where the mind can contemplate itself and create an abstract representation of its own processes.
+
+                As he said in 1979,"					
+            }
+
+            p {
+                class: "mx-4 mt-8 mb-16 md:text-center italic text-grey",
+                "\"It is an inherent property of intelligence that it can jump out of the task which it is performing, and survey what it has done; it is always looking for, and often finding, patterns. Now I said that an intelligence can jump out of its task, but that does not mean that it always will. However, a little prompting will often suffice.\""
+            }
+        }
+
+        Container {
+            header: "LMM Agents: Hype and Limitations".into(),
+            p { 
+                class: "mt-8 mb-16",
+                style: "white-space: pre-line",
+
+                "With the advent of strong language models came the innovation of LLM agents.
+                Large language model agents emerge from complex interactions between it and vector databases that acts as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to \"learn\" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence. 
+                No one knows where the borderline between non-intelligent behavior and intelligent behavior lies; in fact, to suggest that a sharp borderline exists is probably silly. 
+
+                These models don't truly understand their own architecture, operation, or the systems they’re embedded within. A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. They cannot dynamically adapt to new scenarios that require an internal modification of their operation. 
+
+                Possibly, in the future when the context width is large enough, making the system a strange loop by loading in the model’s source code in the input might lead to surprising emergent properties. That is the amount of detail the model will have to know to begin making suggestions to its own code."
+            }
+
+            p {
+                class: "mx-4 mt-12 mb-16 md:text-center italic text-grey",
+                "\"The flexibility of intelligence comes from the enormous number of different rules, and levels of rules… Strange Loops involving rules that change themselves, directly or indirectly, are at the core of intelligence\""
             }
         }
 
@@ -50,60 +98,37 @@ pub fn GEBTransformers(cx: Scope) -> Element {
                 class: "mt-8 mb-16",
                 style: "white-space: pre-line",
 
-                "This situation echoes Kurt Gödel's Incompleteness Theorem, one of the cornerstone insights in mathematical logic. Gödel's theorem essentially states that within any consistent mathematical system, there will always be statements that cannot be proven true or false using the rules of that system.
+                "Gödel's theorem essentially states that within any consistent mathematical system, there will always be statements that cannot be proven true or false using the rules of that system.
 
-                In essence, Gödel's theorem illuminates the limitations of self-contained systems, particularly when those systems are used to analyze or describe themselves. This process of self-reference is a vital component of intelligence, leading us to Hofstadter's fascinating exploration of the theme in \"Gödel, Escher, Bach\".
+                In essence, Gödel's theorem illuminates the limitations of self-contained systems, particularly when those systems are used to analyze or describe themselves. This process of self-reference is a vital component of intelligence, leading us to Hofstadter's fascinating exploration of the theme in GEB.
 
-                Learning from \"Gödel, Escher, Bach\" In \"Gödel, Escher, Bach,\" Hofstadter takes an interdisciplinary approach, drawing from fields like mathematics, art, and music to delve into the theme of self-reference and its potential role in consciousness and intelligence. The titular figures — a mathematician, an artist, and a composer — all incorporate self-reference in their work, showcasing it as a concept that transcends disciplinary boundaries.
+                Hofstadter takes an interdisciplinary approach, drawing from fields like mathematics, art, and music to delve into the theme of self-reference and its potential role in consciousness and intelligence. The titular figures — a mathematician, an artist, and a composer — all incorporate self-reference in their work, showcasing it as a concept that transcends disciplinary boundaries.
 
-                According to Hofstadter, self-reference — and recursion, the process by which a function calls itself — can create complex, 'intelligent' systems. This insight is vital when applied to the context of AI and machine learning. If a system continually references and interacts with itself in increasingly complex ways, it can give rise to novel patterns and behaviors — a phenomenon we could label as 'intelligence.'
+                According to Hofstadter, self-reference — and recursion, the process by which a function calls itself — can create complex, 'intelligent' systems. If a system continually references and interacts with itself in increasingly complex ways, it can give rise to novel patterns and behaviors. As Hofstadter puts it, “Meaningless Symbols Acquire Meaning Despite Themselves”. 
 
-                Take, for example, a piece of code that operates recursively. Even if the basic operation is simple, the repeated self-referential interactions can produce intricate and unexpected outcomes. Similarly, intelligence might be seen as the emergent product of simple neuronal processes recursively interacting and referencing one another within the complex system that is the brain.
+                Similarly, intelligence in humans might be seen as the emergent product of simple neuronal processes recursively interacting and referencing one another within the brain. At the base level, it is individual simple dumb processes interacting at a large scale that lead to the product of consciousness.
 
                 Hofstadter suggests that this same principle could be applied to artificial systems. By designing AI models with the ability to self-reference and operate recursively, we may set the stage for the emergence of intelligence in these systems. The depth and complexity that emerge from such processes could lead to more 'aware' and 'intelligent' LLMs, capable of understanding and even modifying their own structure and function."
             }
         }
 
         Container {
-            header: "Beyond Quines: Self-Reference, Recursion, and Beyond".into(),
+            header: "Self Improving Machines".into(),
             p { 
                 class: "mt-8 mb-16",
                 style: "white-space: pre-line",
 
-                "The idea of a transformer model that possesses a deep understanding of its own internal mechanics raises fascinating possibilities. Such a model would not just interact with external data and APIs, but also comprehend its own architecture and function, enabling an understanding of its limitations, strengths, and operation.
+                "The concept of the technological singularity, as originally coined by John von Neumann and later popularized by Ray Kurzweil, is intrinsically tied to the idea of self-improving intelligent machines.
 
-                In such a system, self-reference and recursion play pivotal roles. These concepts have long been identified as key components of intelligence, as discussed in \"Gödel, Escher, Bach.\" However, it's crucial to recognize that self-reference and recursion by themselves do not directly confer intelligence.
+                In \"The Singularity is Near\", Kurzweil predicts that the singularity will occur around the year 2045, marking a point in time when technological growth becomes uncontrollable and irreversible, resulting in unforeseeable changes to human civilization. Kurzweil’s arguments are built on the basis of Moore's Law and the exponential growth of computing power and technology. He argues that the rate of technological progress is exponential, and as AI begins to surpass human intelligence, it will have the ability to recursively improve its own design, leading to an intelligence explosion.
 
-                Take quine programs as an example. These are self-replicating programs that can produce a copy of their own source code as output. They employ self-reference and recursion, repeatedly calling themselves to generate endless copies. While this may seem sophisticated, it doesn't imply intelligence. A quine program endlessly replicating itself is akin to a biological virus mindlessly multiplying. Neither demonstrates understanding, learning, or adaptability - traits we associate with intelligence.
-
-                Self-replication, while not necessarily a prerequisite for intelligence, takes on a unique significance in the realm of digital intelligence. Once an LLM completely understands its own architecture, it inherently acquires the ability to replicate itself.
-
-                Current LLMs tend to have a high-level understanding of their nature. They know, for example, that they're artificial entities designed for specific tasks, somewhat analogous to how humans know they're biological creatures with certain given properties, behaviors, and natures. But none understands their source code as humans understand their genome. The crucial advantage for LLMs, however, lies in the nature of their digital existence. While humans are constrained by biological factors in how rapidly we can manipulate our genomes for self-improvement, LLMs face no such limitations.
-
-                Furthermore, if it can modify its source code in these replicas, introducing variations and improvements, we have a system capable of digital evolution. Each successive 'generation' could potentially be more sophisticated, efficient, or adaptable than its predecessor. This process, reminiscent of biological evolution, involves self-improvement over iterations. Hence, instilling self-awareness in transformer models goes beyond just self-reference and recursion. It involves providing these models with the knowledge of their 'digital genome' (their source code), and the capability to manipulate it for their improvement."
+                As remarkable as ChatGPT and similar AI models are, they currently remain tools and are far from true intelligent systems. While the development of AI technologies like ChatGPT represents significant progress in the field of artificial intelligence, the singularity remains unpredictably beyond the horizon. While the singularity might not be close, the advances in transformer models have certainly had a societal shift in the perception of the distance we have to go. Perhaps a few more unforseen breakthroughs in capabilities are around the corner. Soon enough though, we will finally play our role as Prometheus."
             }
         }
 
-        Container {
-            header: "The Singularity is Nearer?".into(),
-            p { 
-                class: "mt-8 mb-16",
-                style: "white-space: pre-line",
-
-                "The concept of the technological singularity, as originally coined by John von Neumann and later popularized by Ray Kurzweil, is intrinsically tied to the idea of self-improving AI. Kurzweil, a computer scientist, inventor, and futurist, has written extensively about this topic in his books, such as \"The Age of Spiritual Machines\" and \"The Singularity is Near\". His arguments are built on the basis of Moore's Law and the exponential growth of computing power and technology.
-
-                In \"The Singularity is Near\", Kurzweil predicts that the singularity will occur around the year 2045, marking a point in time when technological growth becomes uncontrollable and irreversible, resulting in unforeseeable changes to human civilization. He argues that the rate of technological progress is exponential, not linear, and as AI begins to surpass human intelligence, it will have the ability to recursively improve its own design, leading to an intelligence explosion.
-
-                The introduction of self-aware transformers or AI models, such as ChatGPT, brings us one step closer to Kurzweil's prediction. Current iterations of AI models like ChatGPT, developed by OpenAI, are not self-aware, nor do they possess the ability to independently improve themselves. However, they already demonstrate a remarkable capability to generate human-like text based on the input they receive, and this ability has vast implications.
-
-                For instance, as AI becomes more advanced and ubiquitous, it can reshape our economy, transforming industries from healthcare to education. It could potentially automate numerous tasks, freeing up human time for creative and complex tasks where human intuition and empathy are irreplaceable. Furthermore, advanced AI could assist in solving global problems like climate change or pandemic control, processing massive amounts of data to predict and analyze trends far beyond human capability.
-
-                However, it's important to note that as remarkable as ChatGPT and similar AI models are, they remain tools rather than true intelligent systems. They don't understand the content they generate in the same way humans do, and they don't possess consciousness, emotions, or desires. For example, despite its impressive performance, ChatGPT does not comprehend the meaning of the text it generates, nor does it have goals or beliefs about the world. It works by statistically predicting what text should come next, given a particular input and the patterns it learned during training.
-
-                While the incorporation of self-awareness and self-improvement mechanisms in AI models might bring us closer to the singularity, we still have a long way to go. Currently, we lack a complete understanding of concepts like consciousness and self-awareness, and our models of AI are, in many ways, still primitive when compared to the complexity and nuance of the human brain. As we venture further into the uncharted territory of AI development, ethical considerations and safe use of AI become increasingly important, requiring as much attention as the technical advancements.
-
-                While the development of AI technologies like ChatGPT represents significant progress in the field of artificial intelligence, the singularity remains a theoretical construct. As AI continues to evolve and improve, the day when it achieves self-awareness and recursive self-improvement could become a reality. However, we are not there yet, and the journey to this point is fraught with complex challenges, both technical and ethical, that we must be prepared to navigate. The singularity might be nearer, but it is not yet upon us. Soon enough though, we will finally play our role as gods."
-            }
+        Quote {
+            quote: "\"Like the Golem fashioned from clay, our creations bear the imprint of our desires and fears. In our hands, we hold the power to shape life and intelligence, a gift that calls for wisdom and caution, lest we become architects of our own Babel.\"".into(),
+            author: "ChatGPT".into()
         }
     }
 }
