@@ -77,7 +77,7 @@ pub fn Home(cx: Scope) -> Element {
             }
 
 
-            h2 { class:"mt-8 mb-16 text-center", "\u{2735} \u{2735} \u{2735}"}
+            h2 { class:"mt-6 md:mb-12 text-center", "\u{2735} \u{2735} \u{2735}"}
             
 
             // BLOG

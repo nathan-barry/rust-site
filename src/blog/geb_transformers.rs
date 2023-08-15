@@ -12,7 +12,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
         BlogHeader {
            title: "Gödel Escher Bach, Self-Reference, and Transformers".into(),
            subtitle: "Exploring Consciousness and Intelligence: A Journey Through Gödel's Incompleteness, Strange Loops, and the Future of Language Models".into(),
-           attributes: "2021-03-03 * Work in Progress".into()
+           attributes: "2023-08-15 * Finished".into()
         }
 
         Container {
