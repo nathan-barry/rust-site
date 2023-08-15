@@ -11,10 +11,10 @@ pub fn Book(
 ) -> Element {
     let toggle = use_state(cx, || false);
     let styles = match (*special, description) {
-        (s, d) if s && d.len() != 0 => "mt-4 mb-4 text-highlight hover:font-bold",
-        (s, _) if s => "mt-4 mb-4 text-highlight",
-        (_, d) if d.len() != 0 => "mt-4 mb-4 hover:font-bold",
-        (_, _) => "mt-4 mb-4"
+        (s, d) if s && d.len() != 0 => "mt-4 mb-4 md:ml-8 text-highlight hover:font-bold",
+        (s, _) if s => "mt-4 mb-4 md:ml-8 text-highlight",
+        (_, d) if d.len() != 0 => "mt-4 mb-4 md:ml-4 hover:font-bold",
+        (_, _) => "mt-4 mb-4 md:ml-4"
     };
     let star = if description.len() != 0 {" *"} else {""};
 
@@ -25,7 +25,7 @@ pub fn Book(
                 class: styles,
                 "{number}. " b{"{title}"} " - {author} *"
             }
-            div { class:"ml-2 md:ml-8 mb-8",
+            div { class:"ml-2 md:ml-12 mb-8",
                 onclick: move |_| toggle.set(!toggle),
             style: "white-space: pre-line", "{description}" }
         }

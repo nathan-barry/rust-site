@@ -856,6 +856,10 @@ p {
     margin-bottom: 4rem;
   }
 
+  .md\:ml-12 {
+    margin-left: 3rem;
+  }
+
   .md\:ml-4 {
     margin-left: 1rem;
   }

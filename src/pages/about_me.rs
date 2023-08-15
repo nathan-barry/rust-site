@@ -12,8 +12,8 @@ pub fn AboutMe(cx: Scope) -> Element {
     render! {
         BlogHeader {
            title: "WHO IS NATHAN BARRY?".into(),
-           subtitle: "A question many people have asked".into(),
-           attributes: "\"How is Nathan Barry?\" not once".into()
+           subtitle: "A question that apperently came to you".into(),
+           attributes: "Try \"How is Nathan Barry?\" next time".into()
         }
 
         // SYNOPSIS
