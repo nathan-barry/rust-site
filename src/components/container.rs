@@ -4,10 +4,11 @@ use dioxus::prelude::*;
 pub fn Container<'a>(cx: Scope, header: String, children: Element<'a>) -> Element {
     render! {
         div {
+            class: "mr-6",
             h2 { 
                 "{header}"
             }
-            div { class: "border-b mr-6" }
+            div { class: "border-b" }
             div { class: "ml-2 md:ml-4 mt-4 mb-8 md:mb-16",
                 children
             }
