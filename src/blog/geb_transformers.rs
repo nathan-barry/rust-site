@@ -39,12 +39,12 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
 
             p {    
-                class: "mx-4 md:text-center italic text-grey",
+                class: "mx-4 md:text-center italic text-lightgrey",
                 "\"GEB was inspired by my long-held conviction that the \"strange loop\" notion holds the key to unraveling the mystery that we conscious beings call \"being\" or \"consciousness.\"\""
             }
 
             p {
-                class: "mx-4 mt-8 mb-16 md:text-center italic text-grey",
+                class: "mx-4 mt-8 mb-16 md:text-center italic text-lightgrey",
                 "\"The Godelian strange loop that arises in formal systems in mathematics (i.e., collections of rules for churning out an endless series of mathematical truths solely by mechanical symbol-shunting without any regard to meanings or ideas hidden in the shapes being manipulated) is a loop that allows such a system to \"perceive itself\", to talk about itself, to become \"self-aware\", and in a sense it would not be going too far to say that by virtue of having such a loop, a formal system acquires a self.\""
             }
 
@@ -66,7 +66,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
 
             p {
-                class: "mx-4 mt-8 mb-16 md:text-center italic text-grey",
+                class: "mx-4 mt-8 mb-16 md:text-center italic text-lightgrey",
                 "\"It is an inherent property of intelligence that it can jump out of the task which it is performing, and survey what it has done; it is always looking for, and often finding, patterns. Now I said that an intelligence can jump out of its task, but that does not mean that it always will. However, a little prompting will often suffice.\""
             }
         }
@@ -87,7 +87,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
 
             p {
-                class: "mx-4 mt-12 mb-16 md:text-center italic text-grey",
+                class: "mx-4 mt-12 mb-16 md:text-center italic text-lightgrey",
                 "\"The flexibility of intelligence comes from the enormous number of different rules, and levels of rules… Strange Loops involving rules that change themselves, directly or indirectly, are at the core of intelligence\""
             }
         }

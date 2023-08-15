@@ -3,7 +3,6 @@ use crate::components::{container::Container, column::Column, quote::Quote};
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
-
 #[inline_props]
 pub fn Home(cx: Scope) -> Element {
     render! {

@@ -832,6 +832,7 @@ dependencies = [
  "dioxus-router",
  "dioxus-web",
  "gloo-timers 0.3.0",
+ "js-sys",
  "wasm-bindgen",
  "web-sys",
 ]

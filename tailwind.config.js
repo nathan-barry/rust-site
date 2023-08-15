@@ -14,19 +14,21 @@ module.exports = {
       },
       textColor: {
         dark: "#191919",
+        lightgrey: '#949494',
         main: "#d4d4d4",
         highlight: "#f7be71",
-        grey: '#949494'
       },
       borderColor: {
-        grey: '#949494'
+        lightgrey: '#949494',
+        darkgrey: '#292929'
       },
       backgroundColor: {
         dark: "#191919",
-        lightgrey: "#949494",
         darkgrey: "#292929",
-        highlight: "#f7be71",
+        lightgrey: "#949494",
         main: "#d4d4d4",
+        highlight: "#f7be71",
+        code: "#1e1e1e",
 
       },
     },
