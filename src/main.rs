@@ -12,12 +12,12 @@ use crate::pages::{
     page_not_found::PageNotFound,
     about_me::AboutMe,
 };
-use crate::components::header::Header;
+use crate::components::wrapper::Wrapper;
 use crate::blog::{
     this_mountain_we_climb::ThisMountainWeClimb,
     geb_transformers::GEBTransformers,
     summer_plan_2023::SummerPlan2023,
-    test_post::TestPost,
+    creating_this_website::CreatingThisWebsite,
 };
 
 use dioxus::prelude::*;
@@ -25,25 +25,31 @@ use dioxus_router::prelude::*;
 
 #[derive(Routable, Clone)]
 enum Route {
-    #[layout(Header)]
+    // Ass but not worth the time figuring out how to not do it this way
+    #[layout(Wrapper)]
         #[route("/")]
         Home {},
-        #[route("/game")]
-        GameOfLife {},
-        #[route("/books")]
-        Books {},
+        // PERSONAL
         #[route("/about")]
         AboutMe {},
-        // Not worth the time figuring out how to not do it this way
+        #[route("/books")]
+        Books {},
+        // PROJECTS
+        #[route("/game")]
+        GameOfLife {},
         // BLOG
-        #[route("/this-mountain-we-climb")]
-        ThisMountainWeClimb {},
+        // RUST
+        #[route("/creating-this-website")]
+        CreatingThisWebsite {},
+        // ML
         #[route("/geb-transformers")]
         GEBTransformers {},
+        // LIFE
         #[route("/summer-plan-2023")]
         SummerPlan2023 {},
-        #[route("/test-post")]
-        TestPost {},
+        // MISC
+        #[route("/this-mountain-we-climb")]
+        ThisMountainWeClimb {},
     #[end_layout]
     #[route("/:..route")]
     PageNotFound { route: Vec<String> },

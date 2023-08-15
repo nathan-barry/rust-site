@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
 #[inline_props]
-pub fn Header(cx: Scope) -> Element {
+pub fn Wrapper(cx: Scope) -> Element {
     render! {
         div {
             class: "p-4 mt-12 md:p-16 md:mt-16 max-w-[1050px] mx-auto",

@@ -13,15 +13,6 @@ module.exports = {
         2000: "2000px",
       },
       textColor: {
-        // main: "#FFFFFF",
-        // highlight: "#33FF00",
-        // Gruvbox
-        // main: "#fbf1c7",
-        // highlight: "#fe8019",f7be71
-        // Nord
-        // main: "#e5e9f0",
-        // highlight: "#88c0d0",
-        // Notion
         dark: "#191919",
         main: "#d4d4d4",
         highlight: "#f7be71",
@@ -31,14 +22,9 @@ module.exports = {
         grey: '#949494'
       },
       backgroundColor: {
-        // dark: "#000000",
-        // Gruvbox
-        // dark: "#282828",
-        // Nord
-        // dark: "#2e3440",
-        // Notion
         dark: "#191919",
-        grey: "#949494",
+        lightgrey: "#949494",
+        darkgrey: "#292929",
         highlight: "#f7be71",
         main: "#d4d4d4",
 

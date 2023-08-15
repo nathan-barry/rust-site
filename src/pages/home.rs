@@ -99,7 +99,7 @@ pub fn Home(cx: Scope) -> Element {
                     Container {
                         header: "RUST".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:"/" {},
+                            Link { to:Route::CreatingThisWebsite {},
                                 "\u{2727} Creating this Website"
                             }
                         },
