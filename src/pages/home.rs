@@ -41,12 +41,12 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "PERSONAL".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::AboutMe {},
                                 "\u{2727} About Me"
                             }
                         },
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::Books {},
                                 "\u{2727} Favorite Books"
                             }
@@ -57,7 +57,7 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "PROJECTS".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GameOfLife {},
                                 "\u{2727} Conway's Game of Life"
                             }
@@ -86,7 +86,7 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "RECENT".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
                                 "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
@@ -98,14 +98,26 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "RUST".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "\u{2727} Website Implementation"
+                                "\u{2727} Creating this Website"
                             }
                         },
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:"/" {},
-                                "\u{2727} Conway's Game of Life"
+                                "\u{2727} Creating Conway's Game of Life w/ Rust & WebAssembly"
+                            }
+                        },
+                    }
+                }
+
+                // ML
+                Column {
+                    Container {
+                        header: "ML".into(),
+                        p { class: "mt-2 text-bold hover:text-highlight",
+                            Link { to:Route::GEBTransformers {},
+                                "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
                         },
                     }
@@ -115,20 +127,9 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "LIFE".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::SummerPlan2023 {},
                                 "\u{2727} 2023 Summer Plan"
-                            }
-                        },
-                    }
-                }
-
-                Column {
-                    Container {
-                        header: "ML".into(),
-                        p { class: "text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
                         },
                     }
@@ -138,7 +139,7 @@ pub fn Home(cx: Scope) -> Element {
                 Column {
                     Container {
                         header: "MISC".into(),
-                        p { class: "text-bold hover:text-highlight",
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},
                                 "\u{2727} This Mountain We Climb"
                             }

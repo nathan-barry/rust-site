@@ -45,7 +45,7 @@ impl Game {
         let inner_size = window.inner_width().unwrap().as_f64().unwrap();
 
         // You can set canvas and grid dimensions based on the viewport
-        let canvas_size = if inner_size > (950.0) { 850 } else {(inner_size * 0.90) as u32};
+        let canvas_size = if inner_size > (1000.0) { 901 } else {(inner_size * 0.90) as u32};
 
         let size = canvas_size / (cell_size+1.0) as u32; // Adjusting number of columns based on cell size
 

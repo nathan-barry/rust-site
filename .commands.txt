@@ -1,2 +1,2 @@
-npx tailwindcss -i ./input.css -o ./public/tailwind.css
-dx serve
+npx tailwindcss -i ./input.css -o ./public/tailwind.css && dx serve
+dx build --release
