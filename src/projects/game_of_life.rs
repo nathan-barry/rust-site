@@ -254,16 +254,8 @@ fn draw_handler(game: Rc<RefCell<Game>>) {
 
 #[inline_props]
 pub fn GameOfLife(cx: Scope) -> Element {
-
-    use_effect(cx, (), move |_| {
-      async move {
-        let game = Rc::new(RefCell::new(Game::new()));
-        game.borrow_mut().draw_grid();
-        draw_handler(game.clone());
-        // Set up an interval to call draw(game) every 100 milliseconds
-        gloo_timers::callback::Interval::new(50, move || draw(game.clone())).forget();
-      }
-    });
+    let interval = Rc::new(RefCell::new(Interval::new(None)));
+    let interval_clone = interval.clone();
 
     cx.render(rsx! {
         p { class: "mb-4",
@@ -276,8 +268,37 @@ pub fn GameOfLife(cx: Scope) -> Element {
             class: "mb-8 w-full flex justify-center",
             canvas {
                 id: "canvas",
+                onmounted: move |_| {
+                    console::log_1(&JsValue::from_str("Game of Life Page Mounted"));
+                    let game = Rc::new(RefCell::new(Game::new()));
+                    game.borrow_mut().draw_grid();
+                    draw_handler(game.clone());
+                    // Set up an interval to call draw(game) every 100 milliseconds
+                    let new_interval = gloo_timers::callback::Interval::new(50, move || draw(game.clone()));
+                    interval_clone.borrow_mut().interval = Some(new_interval);
+                }
             }
         }
     })
 }
 
+struct Interval {
+    interval: Option<gloo_timers::callback::Interval>,
+}
+
+impl Interval {
+    pub fn new(interval: Option<gloo_timers::callback::Interval>) -> Self {
+        Interval {
+            interval
+        }
+    }
+}
+
+impl Drop for Interval {
+    fn drop(&mut self) {
+        if let Some(i) = self.interval.take() {
+            i.cancel();
+        }
+        console::log_1(&JsValue::from_str("Game of Life Page Closed"));
+    }
+}
