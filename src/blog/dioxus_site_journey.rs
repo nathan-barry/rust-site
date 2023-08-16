@@ -7,7 +7,7 @@ use crate::components::{
 };
 
 #[inline_props]
-pub fn CreatingThisWebsite(cx: Scope) -> Element {
+pub fn DioxusSiteJourney(cx: Scope) -> Element {
     // render code
     use_effect(cx, (), move |_| {
       async move {

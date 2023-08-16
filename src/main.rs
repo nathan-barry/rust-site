@@ -17,7 +17,7 @@ use crate::blog::{
     this_mountain_we_climb::ThisMountainWeClimb,
     geb_transformers::GEBTransformers,
     summer_plan_2023::SummerPlan2023,
-    creating_this_website::CreatingThisWebsite,
+    dioxus_site_journey::DioxusSiteJourney,
 };
 
 use dioxus::prelude::*;
@@ -39,8 +39,8 @@ enum Route {
         GameOfLife {},
         // BLOG
         // RUST
-        #[route("/creating-this-website")]
-        CreatingThisWebsite {},
+        #[route("/dioxus-site-journey")]
+        DioxusSiteJourney {},
         // ML
         #[route("/geb-transformers")]
         GEBTransformers {},

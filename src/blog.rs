@@ -1,11 +1,11 @@
-// RUST
-pub mod creating_this_website;
+// rust
+pub mod dioxus_site_journey;
 
-// ML
+// ml
 pub mod geb_transformers;
 
-// Life
+// life
 pub mod summer_plan_2023;
 
-// Misc
+// misc
 pub mod this_mountain_we_climb;
