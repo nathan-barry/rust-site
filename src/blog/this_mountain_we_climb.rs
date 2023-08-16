@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use crate::components::{
-    container::Container,
+    text_box::TextBox,
     blog_header::BlogHeader
 };
 
@@ -14,7 +14,7 @@ pub fn ThisMountainWeClimb(cx: Scope) -> Element {
            attributes: "2021-03-03 * Finished".into()
         }
 
-        Container {
+        TextBox {
             header: "This Mountain We Climb".into(),
             p { 
                 class: "mt-8",

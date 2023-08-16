@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 #[inline_props]
-pub fn Container<'a>(cx: Scope, header: String, children: Element<'a>) -> Element {
+pub fn TextBox<'a>(cx: Scope, header: String, children: Element<'a>) -> Element {
     render! {
         div {
             class: "md:mr-6",

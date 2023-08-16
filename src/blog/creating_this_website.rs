@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use crate::components::{
-    container::Container,
+    text_box::TextBox,
     blog_header::BlogHeader,
     code_block::CodeBlock,
 };
@@ -24,7 +24,7 @@ pub fn CreatingThisWebsite(cx: Scope) -> Element {
         }
 
         // OVERVIEW 
-        Container {
+        TextBox {
             header: "Overview".into(),
 
             p { 
@@ -52,7 +52,7 @@ fn codeblock1() -> String {
 "use dioxus::prelude::*;
 
 use crate::components::{
-    container::Container,
+    container::TextBox,
     blog_header::BlogHeader,
     code_block::CodeBlock,
 };
@@ -69,7 +69,7 @@ pub fn CreatingThisWebsite(cx: Scope) -> Element {
            attributes: \"2023-08-015 * WIP\".into()
         }
 
-        Container {
+        TextBox {
             header: \"Overview\".into(),
             p { 
                 class: \"mt-8\",

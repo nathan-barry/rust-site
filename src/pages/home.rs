@@ -1,5 +1,5 @@
 use crate::Route;
-use crate::components::{container::Container, column::Column, quote::Quote};
+use crate::components::{text_box::TextBox, column::Column, quote::Quote};
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
@@ -38,7 +38,7 @@ pub fn Home(cx: Scope) -> Element {
             div { class: "flex flex-col md:flex-row md:flex-wrap",
                 // PERSONAL
                 Column {
-                    Container {
+                    TextBox {
                         header: "PERSONAL".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::AboutMe {},
@@ -54,7 +54,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
                 // PROJECTS
                 Column {
-                    Container {
+                    TextBox {
                         header: "PROJECTS".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GameOfLife {},
@@ -64,7 +64,7 @@ pub fn Home(cx: Scope) -> Element {
                     }
                 }
                 Column {
-                    Container {
+                    TextBox {
                         header: "LINKS".into(),
                         p { class: "text-bold hover:text-highlight",
                             Link { to:"https://github.com/nathan-barry" {},
@@ -83,7 +83,7 @@ pub fn Home(cx: Scope) -> Element {
             div { class: "flex flex-col md:flex-row md:flex-wrap",
                 // RECENT
                 Column {
-                    Container {
+                    TextBox {
                         header: "RECENT".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
@@ -95,7 +95,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 // RUST
                 Column {
-                    Container {
+                    TextBox {
                         header: "RUST".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::CreatingThisWebsite {},
@@ -112,7 +112,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 // ML
                 Column {
-                    Container {
+                    TextBox {
                         header: "ML".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
@@ -124,7 +124,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 // LIFE
                 Column {
-                    Container {
+                    TextBox {
                         header: "LIFE".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::SummerPlan2023 {},
@@ -136,7 +136,7 @@ pub fn Home(cx: Scope) -> Element {
 
                 // MISC
                 Column {
-                    Container {
+                    TextBox {
                         header: "MISC".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},

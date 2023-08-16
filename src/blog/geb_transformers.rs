@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use crate::components::{
-    container::Container,
+    text_box::TextBox,
     blog_header::BlogHeader,
     quote::Quote
 };
@@ -15,7 +15,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
            attributes: "2023-08-15 * Finished".into()
         }
 
-        Container {
+        TextBox {
             header: "The Early Days".into(),
             p { 
                 class: "mt-8 mb-16",
@@ -29,7 +29,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Gödel Escher Bach and Strange Loops".into(),
             p { 
                 class: "mt-8 mb-16",
@@ -71,7 +71,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "LMM Agents: Hype and Limitations".into(),
             p { 
                 class: "mt-8 mb-16",
@@ -92,7 +92,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Gödel’s Incompleteness Theorem and Self-Reference".into(),
             p { 
                 class: "mt-8 mb-16",
@@ -112,7 +112,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Self Improving Machines".into(),
             p { 
                 class: "mt-8 mb-16",

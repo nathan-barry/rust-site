@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
 use crate::components::{
-    container::Container,
+    text_box::TextBox,
     blog_header::BlogHeader,
     quote::Quote,
 };
@@ -19,7 +19,7 @@ pub fn AboutMe(cx: Scope) -> Element {
         // SYNOPSIS
         div {
             class: "flex flex-col md:flex-row",
-            Container {
+            TextBox {
                 header: "SYNOPSIS".into(),
 
                 p { 
@@ -76,7 +76,7 @@ pub fn AboutMe(cx: Scope) -> Element {
             // INTERESTS
             div {
                 class: "mt-8 md:w-1/2 lg:w-2/3",
-                Container {
+                TextBox {
                     header: "INTERESTS".into(),
                     p { 
                         class: "mt-8",
@@ -94,7 +94,7 @@ pub fn AboutMe(cx: Scope) -> Element {
             // PERSONAL RECORDS
             div {
                 class: "mt-8 md:ml-4 md:w-1/2 lg:w-1/3",
-                Container {
+                TextBox {
                     header: "PERSONAL RECORDS".into(),
                     p {class: "mt-8", "\u{2727} 1600m - 4:28"}
                     p {class: "mt-4", "\u{2727} 3200m - 9:51"}
@@ -110,7 +110,7 @@ pub fn AboutMe(cx: Scope) -> Element {
 
         div {
             class: "mt-12 md:mt-16 flex flex-col md:flex-row",
-            Container {
+            TextBox {
                 header: "LIFE PHILOSOPHY".into(),
 
                 p { 

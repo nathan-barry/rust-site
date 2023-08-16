@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 use crate::components::{
-    container::Container,
+    text_box::TextBox,
     blog_header::BlogHeader,
     checkbox::Checkbox,
 };
@@ -14,14 +14,14 @@ pub fn SummerPlan2023(cx: Scope) -> Element {
            subtitle: "Below are some (if not most) of the things I plan on doing this summer.".into(),
            attributes: "2023-06-01—2023-08-14 * Work in Progress".into()
         }
-        // Container {
+        // TextBox {
         //     header: "Overview".into(),
         //     p {
         //         "The start of this "
         //     }
         // }
 
-        Container {
+        TextBox {
             header: "Books Read".into(),
             
             Checkbox {
@@ -114,7 +114,7 @@ pub fn SummerPlan2023(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Miscellaneous".into(),
 
             Checkbox {
@@ -167,7 +167,7 @@ pub fn SummerPlan2023(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Classes".into(),
 
             Checkbox {
@@ -208,7 +208,7 @@ pub fn SummerPlan2023(cx: Scope) -> Element {
             }
         }
 
-        Container {
+        TextBox {
             header: "Relfection".into(),
             p { style: "white-space: pre-line",
                 "My summer was great. I did essentially a year's worth of classes, read a ton of books, riced up my setup ten-fold, and wrote a lot of code. I learned a tremendous amount about number theory, algebraic structures, physics, Rust, etc., and got good at climbing, juggling, and whatever I decided to do (omit skate boarding). 
