@@ -29,4 +29,8 @@
     p {
         @apply text-lg md:text-xl;
     }
+
+    code {
+        @apply text-sm bg-darkgrey text-highlight p-1 rounded
+    }
 }
