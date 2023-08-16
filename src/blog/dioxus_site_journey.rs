@@ -234,10 +234,10 @@ script = []".into()}
 
 fn codeblock3() -> String {
 "
-// --snip--
+# --snip--
 
 [web.watcher]
 
 index_on_404 = true
 
-// --snip--".into()}
+# --snip--".into()}

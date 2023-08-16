@@ -28,7 +28,7 @@ module.exports = {
         lightgrey: "#949494",
         main: "#d4d4d4",
         highlight: "#f7be71",
-        code: "#1e1e1e",
+        code: "#262626",
 
       },
     },
