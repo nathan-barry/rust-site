@@ -8,7 +8,6 @@ use crate::components::{
 
 #[inline_props]
 pub fn CreatingThisWebsite(cx: Scope) -> Element {
-
     // render code
     use_effect(cx, (), move |_| {
       async move {
@@ -31,13 +30,11 @@ pub fn CreatingThisWebsite(cx: Scope) -> Element {
             p { 
                 class: "mt-8",
                 style: "white-space: pre-line",
-
                 "This is example text. I am trying to create a new code block compoent.
 
                 Below should be a code block."
             }
 
-            // CODE BLOCK 1
             CodeBlock {
                 code { class: "language-rust text-sm", "{codeblock1()}" }
             }
@@ -45,7 +42,6 @@ pub fn CreatingThisWebsite(cx: Scope) -> Element {
             p { 
                 class: "mt-8",
                 style: "white-space: pre-line",
-
                 "So there is a slight problem. Syntect doesn't work in WebAssembly because it has a dependency that relies on C code which doesn't work too well with WASM. It looks like I'm going to have to roll my own String2rsx syntax highlighter. I'll research of other solutions, but if it is what I need to do, it is what I need to do."
             }
         }
