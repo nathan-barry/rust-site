@@ -55,7 +55,7 @@ pub fn Home(cx: Scope) -> Element {
                 // PROJECTS
                 Column {
                     TextBox {
-                        header: "PROJECTS".into(),
+                        header: "WEB ASSEMBLY".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GameOfLife {},
                                 "\u{2727} Conway's Game of Life"
@@ -99,12 +99,7 @@ pub fn Home(cx: Scope) -> Element {
                         header: "RUST".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::DioxusSiteJourney {},
-                                "\u{2727} Dioxus Site Journey"
-                            }
-                        },
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:"/" {},
-                                "\u{2727} Creating Conway's Game of Life w/ Rust & WebAssembly"
+                                "\u{2727} My Experience w/ Dioxus"
                             }
                         },
                     }

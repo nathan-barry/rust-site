@@ -64,7 +64,7 @@ pub fn AboutMe(cx: Scope) -> Element {
             div {
                 class: "mt-8 md:mt-0 ml-4 items-center flex flex-col min-w-[300px]",
 
-                img { src: "me.jpg", width: "300"}
+                img { class: "border border-lightgrey", src: "me.jpg", width: "300"}
                 div { 
                     class: "mt-4 text-center max-w-[300px]",
                     "Me in the GDC elevator, August 2nd 2023, 5:23 AM" }
