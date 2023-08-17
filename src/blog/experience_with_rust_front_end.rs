@@ -23,7 +23,7 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
         BlogHeader {
            title: "My Experience with Rust Front-End".into(),
            subtitle: "The Good, the Bad, and the Ugly. Below is an overview of the Dioxus framework, steps on how to host via Github Pages, and how to interact with JS libraries from Rust.".into(),
-           attributes: "2023-08-015 * WIP".into()
+           attributes: "2023-08-16 * Finished".into()
         }
 
         // Why Rust for Frontend
