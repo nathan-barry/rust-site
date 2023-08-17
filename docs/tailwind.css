@@ -435,7 +435,7 @@ video {
 }
 
 html {
-  font-family: "Times New Roman", serif;
+  font-family: serif
 }
 
 body {
@@ -466,14 +466,13 @@ li {
 }
 
 p {
-  text-align: justify;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 300;
 }
 
 @media (min-width: 768px) {
   p {
+    text-align: justify;
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
@@ -820,10 +819,6 @@ code {
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-light {
-  font-weight: 300;
 }
 
 .italic {
