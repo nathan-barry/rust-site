@@ -86,7 +86,7 @@ pub fn Home(cx: Scope) -> Element {
                     TextBox {
                         header: "RECENT".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::DioxusSiteJourney {},
+                            Link { to:Route::ExperienceWithRustFrontEnd {},
                                 "\u{2727} My Experience w/ Dioxus"
                             }
                         },
@@ -103,7 +103,7 @@ pub fn Home(cx: Scope) -> Element {
                     TextBox {
                         header: "RUST".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::DioxusSiteJourney {},
+                            Link { to:Route::ExperienceWithRustFrontEnd {},
                                 "\u{2727} My Experience w/ Dioxus"
                             }
                         },

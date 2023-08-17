@@ -17,7 +17,7 @@ use crate::blog::{
     this_mountain_we_climb::ThisMountainWeClimb,
     geb_transformers::GEBTransformers,
     summer_plan_2023::SummerPlan2023,
-    dioxus_site_journey::DioxusSiteJourney,
+    experience_with_rust_front_end::ExperienceWithRustFrontEnd,
 };
 
 use dioxus::prelude::*;
@@ -35,12 +35,12 @@ enum Route {
         #[route("/books")]
         Books {},
         // PROJECTS
-        #[route("/game")]
+        #[route("/game-of-life")]
         GameOfLife {},
         // BLOG
         // RUST
-        #[route("/dioxus-site-journey")]
-        DioxusSiteJourney {},
+        #[route("/my-expereince-with-rust-front-end")]
+        ExperienceWithRustFrontEnd {},
         // ML
         #[route("/geb-transformers")]
         GEBTransformers {},

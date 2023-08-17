@@ -1,5 +1,5 @@
 // rust
-pub mod dioxus_site_journey;
+pub mod experience_with_rust_front_end;
 
 // ml
 pub mod geb_transformers;
