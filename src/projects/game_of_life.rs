@@ -49,9 +49,6 @@ impl Game {
 
         let size = canvas_size / (cell_size+1.0) as u32; // Adjusting number of columns based on cell size
 
-        console::log_1(&JsValue::from_f64(size as f64));
-        console::log_1(&JsValue::from_f64(canvas_size as f64));
-
         let document = window.document().unwrap();
         let canvas = document.get_element_by_id("canvas").unwrap();
         let canvas: HtmlCanvasElement = canvas
@@ -76,8 +73,6 @@ impl Game {
                     Cell::Dead
                 }
             }).collect();
-
-        console::log_1(&JsValue::from_f64(cells.len() as f64));
 
         Game {
             size,
