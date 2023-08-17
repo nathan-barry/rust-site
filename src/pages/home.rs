@@ -86,6 +86,11 @@ pub fn Home(cx: Scope) -> Element {
                     TextBox {
                         header: "RECENT".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
+                            Link { to:Route::DioxusSiteJourney {},
+                                "\u{2727} My Experience w/ Dioxus"
+                            }
+                        },
+                        p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::GEBTransformers {},
                                 "\u{2727} Gödel, Escher, Bach & Transformers"
                             }
