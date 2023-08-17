@@ -11,17 +11,15 @@ use crate::components::{
 pub fn AboutMe(cx: Scope) -> Element {
     render! {
         BlogHeader {
-           title: "WHO IS NATHAN BARRY?".into(),
-           subtitle: "A question that apperently came to you".into(),
-           attributes: "Try \"How is Nathan Barry?\" next time".into()
+           title: "Nathan Barry".into(),
+           subtitle: "Programmer, farmer, handsome bastard".into(),
+           attributes: "Yes, *The* Nathan Barry".into()
         }
 
-        // SYNOPSIS
+        // Synopsis 
         div {
             class: "flex flex-col md:flex-row",
-            TextBox {
-                header: "SYNOPSIS".into(),
-
+            TextBox { header: "Abstract".into(),
                 p { 
                     class: "mt-8",
                     style: "white-space: pre-line",
@@ -53,14 +51,13 @@ pub fn AboutMe(cx: Scope) -> Element {
 
                     ".
 
-                    I am also a pepper farmer. I am currently growing 4 strains of Habenero Pepper and one variant of Ghost Pepper"
+                    I am also a pepper farmer. I am currently growing 4 strains of Habenero Pepper and one variant of Ghost Pepper."
 
 
                 }
             }
 
-            
-            // IMAGE
+            // Image
             div {
                 class: "mt-8 md:mt-0 ml-4 items-center flex flex-col min-w-[300px]",
 
@@ -77,7 +74,7 @@ pub fn AboutMe(cx: Scope) -> Element {
             div {
                 class: "mt-8 md:w-1/2 lg:w-2/3",
                 TextBox {
-                    header: "INTERESTS".into(),
+                    header: "Personal Interests".into(),
                     p { 
                         class: "mt-8",
                         style: "white-space: pre-line",
@@ -91,11 +88,10 @@ pub fn AboutMe(cx: Scope) -> Element {
                     }
                 }
             }
-            // PERSONAL RECORDS
             div {
                 class: "mt-8 md:ml-4 md:w-1/2 lg:w-1/3",
                 TextBox {
-                    header: "PERSONAL RECORDS".into(),
+                    header: "Personal Records".into(),
                     p {class: "mt-8", "\u{2727} 1600m - 4:28"}
                     p {class: "mt-4", "\u{2727} 3200m - 9:51"}
                     p {class: "mt-4", "\u{2727} 5k - 15:56"}
@@ -111,7 +107,7 @@ pub fn AboutMe(cx: Scope) -> Element {
         div {
             class: "mt-12 md:mt-16 flex flex-col md:flex-row",
             TextBox {
-                header: "LIFE PHILOSOPHY".into(),
+                header: "Life Philosophy".into(),
 
                 p { 
                     class: "mt-8",

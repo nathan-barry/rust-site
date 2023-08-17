@@ -7,7 +7,6 @@ use dioxus_router::prelude::*;
 pub fn Home(cx: Scope) -> Element {
     render! {
         div {
-            // First paragraph
             p { class: "mb-4",
                 "THIS IS THE WEBSITE of " b { "Nathan Barry" }  ", a Computer Science and Mathematics major at " 
                 Link {
@@ -30,7 +29,7 @@ pub fn Home(cx: Scope) -> Element {
                 "The bundle size is three times larger than when I used Next.js, but sometimes it's the DX that counts."
             }
 
-            // Quote
+
             Quote {
                 quote: "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\"".into(),
                 author: "Félix Martí-Ibáñez".into()
@@ -39,114 +38,89 @@ pub fn Home(cx: Scope) -> Element {
 
 
             div { class: "flex flex-col md:flex-row md:flex-wrap",
-                // PERSONAL
-                Column {
-                    TextBox {
-                        header: "PERSONAL".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::AboutMe {},
-                                "\u{2727} About Me"
-                            }
-                        },
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::Books {},
-                                "\u{2727} Favorite Books"
-                            }
-                        },
-                    }
+                Column { header: "Personal".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::AboutMe {},
+                            "\u{2727} About Me"
+                        }
+                    },
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::Books {},
+                            "\u{2727} Favorite Books"
+                        }
+                    },
                 }
-                // PROJECTS
-                Column {
-                    TextBox {
-                        header: "WEB ASSEMBLY".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::GameOfLife {},
-                                "\u{2727} Conway's Game of Life"
-                            }
-                        },
-                    }
+                Column { header: "Web Assembly".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::GameOfLife {},
+                            "\u{2727} Conway's Game of Life"
+                        }
+                    },
                 }
-                Column {
-                    TextBox {
-                        header: "LINKS".into(),
-                        p { class: "text-bold hover:text-highlight",
-                            Link { to:"https://github.com/nathan-barry" {},
-                                "\u{2751} Github"
-                            }
-                        },
-                    }
+                Column { header: "Links".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:"https://github.com/nathan-barry" {},
+                            "\u{2751} Github"
+                        }
+                    },
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:"https://www.linkedin.com/in/nathanrs/" {},
+                            "\u{2751} LinkedIn"
+                        }
+                    },
                 }
             }
+
 
 
             h2 { class:"mt-6 md:mb-12 text-center", "\u{2735} \u{2735} \u{2735}"}
             
 
-            // BLOG
+
             div { class: "flex flex-col md:flex-row md:flex-wrap",
-                // RECENT
-                Column {
-                    TextBox {
-                        header: "RECENT".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::ExperienceWithRustFrontEnd {},
-                                "\u{2727} My Experience w/ Dioxus"
-                            }
-                        },
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "\u{2727} Gödel, Escher, Bach & Transformers"
-                            }
-                        },
-                    }
+                Column { header: "Recent".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::ExperienceWithRustFrontEnd {},
+                            "\u{2727} My Experience w/ Dioxus"
+                        }
+                    },
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::GEBTransformers {},
+                            "\u{2727} Gödel, Escher, Bach & Transformers"
+                        }
+                    },
                 }
 
-                // RUST
-                Column {
-                    TextBox {
-                        header: "RUST".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::ExperienceWithRustFrontEnd {},
-                                "\u{2727} My Experience w/ Dioxus"
-                            }
-                        },
-                    }
+                Column { header: "Rust".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::ExperienceWithRustFrontEnd {},
+                            "\u{2727} My Experience w/ Dioxus"
+                        }
+                    },
                 }
 
-                // ML
-                Column {
-                    TextBox {
-                        header: "ML".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::GEBTransformers {},
-                                "\u{2727} Gödel, Escher, Bach & Transformers"
-                            }
-                        },
-                    }
+                Column { header: "Machine Learning".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::GEBTransformers {},
+                            "\u{2727} Gödel, Escher, Bach & Transformers"
+                        }
+                    },
                 }
 
-                // LIFE
-                Column {
-                    TextBox {
-                        header: "LIFE".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
-                            Link { to:Route::SummerPlan2023 {},
-                                "\u{2727} 2023 Summer Plan"
-                            }
-                        },
-                    }
+                Column { header: "Life".into(),
+                    p { class: "mt-2 text-bold hover:text-highlight",
+                        Link { to:Route::SummerPlan2023 {},
+                            "\u{2727} 2023 Summer Plan"
+                        }
+                    },
                 }
 
-                // MISC
-                Column {
-                    TextBox {
-                        header: "MISC".into(),
+                Column { header: "Misc.".into(),
                         p { class: "mt-2 text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},
                                 "\u{2727} This Mountain We Climb"
                             }
                         },
-                    }
                 }
 
             }
