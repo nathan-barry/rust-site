@@ -27,7 +27,7 @@
 	}
 
     p {
-        @apply text-lg md:text-xl;
+        @apply text-lg md:text-xl text-justify;
     }
 
     code {

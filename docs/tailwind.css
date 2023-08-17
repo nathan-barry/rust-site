@@ -466,6 +466,7 @@ li {
 }
 
 p {
+  text-align: justify;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
@@ -912,6 +913,11 @@ code {
 
   .md\:text-center {
     text-align: center;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 

@@ -32,7 +32,7 @@ pub fn GEBTransformers(cx: Scope) -> Element {
         TextBox {
             header: "Gödel Escher Bach and Strange Loops".into(),
             p { 
-                class: "mt-8 mb-16",
+                class: "mt-8 mb-12 md:mb-16",
                 style: "white-space: pre-line",
 
                 "Not too long ago, I was recommended the book \"Gödel, Escher, Bach\" by Douglas Hofstadter. The book, at its core, is about how intelligent systems arise out of nothing, or in the words of the author,"
@@ -44,10 +44,9 @@ pub fn GEBTransformers(cx: Scope) -> Element {
             }
 
             p {
-                class: "mx-4 mt-8 mb-16 md:text-center italic text-lightgrey",
+                class: "mx-4 mt-8 mb-12 md:mb-16 md:text-center italic text-lightgrey",
                 "\"The Godelian strange loop that arises in formal systems in mathematics (i.e., collections of rules for churning out an endless series of mathematical truths solely by mechanical symbol-shunting without any regard to meanings or ideas hidden in the shapes being manipulated) is a loop that allows such a system to \"perceive itself\", to talk about itself, to become \"self-aware\", and in a sense it would not be going too far to say that by virtue of having such a loop, a formal system acquires a self.\""
             }
-
 
 
             p {
@@ -74,19 +73,19 @@ pub fn GEBTransformers(cx: Scope) -> Element {
         TextBox {
             header: "LMM Agents: Hype and Limitations".into(),
             p { 
-                class: "mt-8 mb-16",
+                class: "mt-8 mb-12 md:mb-16",
                 style: "white-space: pre-line",
 
                 "Large language model agents emerge from complex interactions between it and vector databases that acts as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to \"learn\" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence."
             }
                 
             p {
-                class: "mx-4 mt-12 mb-16 md:text-center italic text-lightgrey",
+                class: "mx-4 mt-12 mb-12 md:mb-16 md:text-center italic text-lightgrey",
                 "\"No one knows where the borderline between non-intelligent behavior and intelligent behavior lies; in fact, to suggest that a sharp borderline exists is probably silly.\""
             }
 
             p { 
-                class: "mt-8 mb-16",
+                class: "mt-8 mb-12 md:mb-16",
                 style: "white-space: pre-line",
 
                 "A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. They cannot dynamically adapt to new scenarios that require an internal modification of their operation. 
