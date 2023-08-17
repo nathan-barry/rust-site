@@ -146,7 +146,7 @@ pub fn DioxusSiteJourney(cx: Scope) -> Element {
                 "The easiest way to host this was to just move the build output directory to /docs and then, in the Pages settings page in the github repo, select it to build from /docs. Below is a screenshot of what it should look like."
             }
 
-            img { class: "mt-12 mb-12 border border-lightgrey rounded-xl", src: "mewrf-2.png", height: "300"}
+            img { class: "mt-12 mb-12 border border-lightgrey rounded-xl", src: "blog-mewrf-1.png", height: "300"}
 
             p { 
                 class: "mt-8",
