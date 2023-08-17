@@ -12,7 +12,7 @@ pub fn AboutMe(cx: Scope) -> Element {
     render! {
         BlogHeader {
            title: "Nathan Barry".into(),
-           subtitle: "Student. Programmer. Handsome bastard.".into(),
+           subtitle: "Student. Programmer. Average Neovim User.".into(),
            attributes: "Yes, *The* Nathan Barry".into()
         }
 
