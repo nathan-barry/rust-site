@@ -39,31 +39,31 @@ pub fn Home(cx: Scope) -> Element {
 
             div { class: "flex flex-col md:flex-row md:flex-wrap",
                 Column { header: "Personal".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::AboutMe {},
                             "\u{2727} About Me"
                         }
                     },
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::Books {},
                             "\u{2727} Favorite Books"
                         }
                     },
                 }
                 Column { header: "Web Assembly".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::GameOfLife {},
                             "\u{2727} Conway's Game of Life"
                         }
                     },
                 }
                 Column { header: "Links".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:"https://github.com/nathan-barry" {},
                             "\u{2751} Github"
                         }
                     },
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:"https://www.linkedin.com/in/nathanrs/" {},
                             "\u{2751} LinkedIn"
                         }
@@ -79,12 +79,12 @@ pub fn Home(cx: Scope) -> Element {
 
             div { class: "flex flex-col md:flex-row md:flex-wrap",
                 Column { header: "Recent".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::ExperienceWithRustFrontEnd {},
                             "\u{2727} My Experience w/ Dioxus"
                         }
                     },
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::GEBTransformers {},
                             "\u{2727} Gödel, Escher, Bach & Transformers"
                         }
@@ -92,7 +92,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
 
                 Column { header: "Rust".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::ExperienceWithRustFrontEnd {},
                             "\u{2727} My Experience w/ Dioxus"
                         }
@@ -100,7 +100,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
 
                 Column { header: "Machine Learning".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::GEBTransformers {},
                             "\u{2727} Gödel, Escher, Bach & Transformers"
                         }
@@ -108,7 +108,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
 
                 Column { header: "Life".into(),
-                    p { class: "mt-2 text-bold hover:text-highlight",
+                    p { class: "mt-2 text-left text-bold hover:text-highlight",
                         Link { to:Route::SummerPlan2023 {},
                             "\u{2727} 2023 Summer Plan"
                         }
@@ -116,7 +116,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
 
                 Column { header: "Misc.".into(),
-                        p { class: "mt-2 text-bold hover:text-highlight",
+                        p { class: "mt-2 text-left text-bold hover:text-highlight",
                             Link { to:Route::ThisMountainWeClimb {},
                                 "\u{2727} This Mountain We Climb"
                             }
