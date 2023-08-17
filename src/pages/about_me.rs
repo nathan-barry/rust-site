@@ -12,7 +12,7 @@ pub fn AboutMe(cx: Scope) -> Element {
     render! {
         BlogHeader {
            title: "Nathan Barry".into(),
-           subtitle: "Programmer, farmer, handsome bastard".into(),
+           subtitle: "Student. Programmer. Handsome bastard.".into(),
            attributes: "Yes, *The* Nathan Barry".into()
         }
 
@@ -36,22 +36,15 @@ pub fn AboutMe(cx: Scope) -> Element {
                     I was born in "
                     Link {
                         class: "underline underline-offset-4 hover:text-highlight",
-                        to:"https://www.utexas.edu/",
+                        to:"https://en.wikipedia.org/wiki/St._Joseph,_Missouri",
                         "Saint Joseph, Missouri"
                     }
 
                     ". I started programming in 2017 my freshman year of high school, with Python and Javascript, serving PyTorch models with Flask and React.
 
-                    In my free time I enjoy climbing, biking, and playing ultimate frisbee with the "
-                    Link {
-                        class: "underline underline-offset-4 hover:text-highlight",
-                        to:"https://www.utexas.edu/",
-                        "CS Ultimate team"
-                    }
+                    In my free time, I enjoy climbing, biking, and playing ultimate frisbee with the CS Ultimate team.
 
-                    ".
-
-                    I am also a pepper farmer. I am currently growing 4 strains of Habenero Pepper and one variant of Ghost Pepper."
+                    I am also a pepper farmer. I am currently growing 4 strains of Habanero Pepper and one variant of Ghost Pepper."
 
 
                 }
@@ -79,7 +72,7 @@ pub fn AboutMe(cx: Scope) -> Element {
                         class: "mt-8",
                         style: "white-space: pre-line",
                         
-                        "The great thing about life is that I happen to be solely in what I'm studing. Most of my time is taken with the workload I take in school, and that makes me happy. I'd have it no other way. 
+                        "The great thing about life is that I happen to be solely in what I'm studying. Most of my time is taken with the workload I take in school, and that makes me happy. I'd have it no other way. 
 
                         At the time of writing this, I'm talking Algorithms & Complexity, Algebraic Structures I, Numerical Analysis, and Geometric Foundations of Data Science. Lovely. 
 
@@ -113,13 +106,13 @@ pub fn AboutMe(cx: Scope) -> Element {
                     class: "mt-8",
                     style: "white-space: pre-line",
 
-                    "My life philosphy started crystalizing when I was 15, and has remained more or less constant ever since. Below is my attempt to vocalize what I believe.
+                    "My life philosophy started crystalizing when I was 15 and has remained more or less constant ever since. Below is my attempt to vocalize what I believe.
 
                     One of the main things that separates humans from other animals is that we are cognisant that time passes and the concept of a future. We acknowledge that we can sacrifice today to make a better tomorrow. This happens at all levels: your life and the generations beyond you.
 
                     We aren’t just minds inhabiting a body in the current moment, but a community of different versions of ourselves propagated across time. You aren't just who you are now, but also you a day from now, a year, a decade, etc. What you choose to do today will directly affect all of those future versions of you. One should act in accordance with whatever will maximize the expected value of fulfillment across all of those versions, not just the version of you today.
 
-                    I recall once hearing the quote, \"Bees make honey. Bevers build dams. Humans create progress\". Progress seems like the main motif of humanity. I think that being able to create new things which are recognized to have value is a fundamental characteristic of humans and necessary to live a fulfilled life. The only thing that allows someone to create something new and of value is competence and hard work. The bar is always being pushed. It is at the edge of human knowledge that this value is captured.
+                    I recall once hearing the quote, \"Bees make honey. Beavers build dams. Humans create progress\". Progress seems like the main motif of humanity. I think that being able to create new things which are recognized to have value is a fundamental characteristic of humans and necessary to live a fulfilled life. The only thing that allows someone to create something new and of value is competence and hard work. The bar is always being pushed. It is at the edge of human knowledge that this value is captured.
 
                     I believe that hard work and competence are the only things that will lead to that outcome. Competence is the knowledge and ability to take action and get something done. The more a person can do, the more value they can provide and catch for and from society. Everyone should desire to be a competent individual in as many fields as possible and put their competence to good use.
 

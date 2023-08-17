@@ -31,7 +31,7 @@ pub fn Home(cx: Scope) -> Element {
 
 
             Quote {
-                quote: "\"I believe that a man should strive for only one thing in life, and that, is to have a touch of greatness\"".into(),
+                quote: "\"I believe that a man should strive for only one thing in life, and that is to have a touch of greatness\"".into(),
                 author: "Félix Martí-Ibáñez".into()
             }
 
