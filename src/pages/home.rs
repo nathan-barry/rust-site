@@ -26,7 +26,7 @@ pub fn Home(cx: Scope) -> Element {
                 " which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
             }
             p { 
-                "The bundle size is three times larger than when I used Next.js, but sometimes it's the DX that counts."
+                "The bundle size is " i {"three times larger"} " than when I used Next.js, but " i {"sometimes it's the DX that counts."}
             }
 
 

@@ -77,11 +77,19 @@ pub fn GEBTransformers(cx: Scope) -> Element {
                 class: "mt-8 mb-16",
                 style: "white-space: pre-line",
 
-                "With the advent of strong language models came the innovation of LLM agents.
-                Large language model agents emerge from complex interactions between it and vector databases that acts as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to \"learn\" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence. 
-                No one knows where the borderline between non-intelligent behavior and intelligent behavior lies; in fact, to suggest that a sharp borderline exists is probably silly. 
+                "Large language model agents emerge from complex interactions between it and vector databases that acts as a memory store for previous output. This database allows the LLM to incrementally build upon prior knowledge, creating an iterative learning process that aids in generating novel and relevant responses. This, in essence, enables LLMs to \"learn\" and respond to new information in a contextually appropriate manner. While an intriguing idea, these agents fundamentally lack an integral part of intelligence."
+            }
+                
+            p {
+                class: "mx-4 mt-12 mb-16 md:text-center italic text-lightgrey",
+                "\"No one knows where the borderline between non-intelligent behavior and intelligent behavior lies; in fact, to suggest that a sharp borderline exists is probably silly.\""
+            }
 
-                These models don't truly understand their own architecture, operation, or the systems they’re embedded within. A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. They cannot dynamically adapt to new scenarios that require an internal modification of their operation. 
+            p { 
+                class: "mt-8 mb-16",
+                style: "white-space: pre-line",
+
+                "A system that doesn't understand its own workings is inherently capped in the complex actions it can take. By not comprehending the intricacies of the system they operate in or that they are comprised of, these LLMs are restricted in their ability to optimize their responses or troubleshoot their processes. An LLM without self-knowledge can only perform tasks to the extent of its pre-defined capabilities. They cannot dynamically adapt to new scenarios that require an internal modification of their operation. 
 
                 Possibly, in the future when the context width is large enough, making the system a strange loop by loading in the model’s source code in the input might lead to surprising emergent properties. That is the amount of detail the model will have to know to begin making suggestions to its own code."
             }
@@ -104,11 +112,11 @@ pub fn GEBTransformers(cx: Scope) -> Element {
 
                 Hofstadter takes an interdisciplinary approach, drawing from fields like mathematics, art, and music to delve into the theme of self-reference and its potential role in consciousness and intelligence. The titular figures — a mathematician, an artist, and a composer — all incorporate self-reference in their work, showcasing it as a concept that transcends disciplinary boundaries.
 
-                According to Hofstadter, self-reference — and recursion, the process by which a function calls itself — can create complex, 'intelligent' systems. If a system continually references and interacts with itself in increasingly complex ways, it can give rise to novel patterns and behaviors. As Hofstadter puts it, “Meaningless Symbols Acquire Meaning Despite Themselves”. 
+                According to Hofstadter, self-reference — and recursion, the process by which a function calls itself — can create complex, 'intelligent' systems. If a system continually references and interacts with itself in increasingly complex ways, it can give rise to novel patterns and behaviors. As Hofstadter puts it, “meaningless symbols acquire meaning despite themselves”. 
 
                 Similarly, intelligence in humans might be seen as the emergent product of simple neuronal processes recursively interacting and referencing one another within the brain. At the base level, it is individual simple dumb processes interacting at a large scale that lead to the product of consciousness.
 
-                Hofstadter suggests that this same principle could be applied to artificial systems. By designing AI models with the ability to self-reference and operate recursively, we may set the stage for the emergence of intelligence in these systems. The depth and complexity that emerge from such processes could lead to more 'aware' and 'intelligent' LLMs, capable of understanding and even modifying their own structure and function."
+                This same principle could be applied to artificial systems. By designing AI models with the ability to self-reference and operate recursively, we may set the stage for the emergence of intelligence in these systems. The depth and complexity that emerge from such processes could lead to more 'aware' and 'intelligent' LLMs, capable of understanding and even modifying their own structure and function."
             }
         }
 
