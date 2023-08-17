@@ -9,15 +9,15 @@ pub fn Home(cx: Scope) -> Element {
         div {
             // First paragraph
             p { class: "mb-4",
-                "THIS IS THE WEBSITE of " b { "Nathan Barry" } ". There are many like it, but this one is " i { "mine" } ". I am a Computer Science and Mathematics major at " 
+                "THIS IS THE WEBSITE of " b { "Nathan Barry" }  ", a Computer Science and Mathematics major at " 
                 Link {
                     class: "underline underline-offset-4 hover:text-highlight",
                     to:"https://www.utexas.edu/",
                     "UT Austin"
                 }
-                "."
+                ". There are many like it, but this one is " i { "mine" } "."
             }
-            p { 
+            p { class: "mb-4",
                 "This entire website is written in "
                 Link {
                     class: "underline underline-offset-4 hover:text-highlight",
@@ -25,6 +25,9 @@ pub fn Home(cx: Scope) -> Element {
                     "Rust"
                 }
                 " which allows me to show some of my projects here via WebAssembly. You can also read some of my blog posts below."
+            }
+            p { 
+                "The bundle size is three times larger than when I used Next.js, but sometimes it's the DX that counts."
             }
 
             // Quote
