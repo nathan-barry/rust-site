@@ -31,11 +31,10 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
             header: "Why Rust for Front-End Development".into(),
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "I’ve been using React and Next.js for front end development ever since highschool, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front end. As someone with a \".rs\" domain, it felt like an inevitable fate. Finally, I can say I put the \".rs\" in the \"nathan.rs\".
-
-                The front end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are competitive with the fastest JavaScript front end frameworks. The tyranny of React has come to an end. While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front end development, Rust frameworks like Leptos and Dioxus are also maturing. I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site."
+                "I’ve been using React and Next.js for front-end development ever since high school, it was one of the first few things I learned when it came to programming. Recently, I’ve had the itch to learn something new, specifically Rust front-end. As someone with a \".rs\" domain, it felt like an inevitable fate. Finally, I can say I put the \".rs\" in the \"nathan.rs\"."
+            }
+            p { 
+                "The front-end Rust ecosystem has come a long way in the last few years. We are at a point where we now have Rust frameworks that are competitive with the fastest JavaScript front-end frameworks. The tyranny of React has come to an end. While frameworks like Svelte, Astro, and Solid are making people rethink their approach to front-end development, Rust frameworks like Leptos and Dioxus are also maturing. I've never been a fan of TypeScript or JS but have always loved Rust. I decided to rewrite my website in Rust using Dioxus. In addition to being more enjoyable to work on, any Rust code I write for other personal projects, I can compile down to WebAssembly and show on this site."
             }
         }
 
@@ -47,21 +46,25 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
                 class: "mt-8",
                 style: "white-space: pre-line",
 
-                "For me, it was between this and Leptos. I chose Dioxus because of its versatility. It has support for desktop and mobile and has multiple options for serving a website.
-
-                The first option is "
+                "For me, it was between this and Leptos. I chose Dioxus because of its versatility. It has support for desktop and mobile and has multiple options for serving a website."
+            }
+            p { 
+                "The first option is "
                 code { "dioxus_web" }
-                " which is Single Page Application (SPA) similar to React. SPAs work by sending over a large bundle of JavaScript which renders the website client side. This gives a very fluid experience but is bad for SEO and has relatively poor initial load times.
-
-                The second option is "
+                " which is Single Page Application (SPA) similar to React. SPAs work by sending over a large bundle of JavaScript which renders the website client side. This gives a very fluid experience but is bad for SEO and has relatively poor initial load times."
+            }
+            p { 
+                "The second option is "
                 code { "dioxus_liveview" } 
-                " which renders everything on the server and uses WebSockets to stream the server content to the client. This is good for real-time multiparty apps where multiple people might be collaborating, like google docs or live whiteboard.
-
-                Finally, they have "
+                " which renders everything on the server and uses WebSockets to stream the server content to the client. This is good for real-time multiparty apps where multiple people might be collaborating, like google docs or live whiteboard."
+            }
+            p { 
+                "Finally, they have "
                 code {"dioxus_fullstack"}
-                " which does SSR (Server Side Rendering). This means that they render the HTML serverside and send it to the client, as opposed to sending JS which renders it client-side as with dioxus_web.
-
-                I chose "
+                " which does SSR (Server Side Rendering). This means that they render the HTML serverside and send it to the client, as opposed to sending JS which renders it client-side as with dioxus_web."
+            }
+            p { 
+                "I chose "
                 code {"dioxus_web"} 
                 " mainly since GitHub Pages support only static web apps which basically eliminated the other two options. I'm also familiar with React, and as we know, old habits die hard.
 
@@ -71,21 +74,22 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
             CodeBlock { file: "./src/main.rs".into(), code { class: "language-rust", "{codeblock1()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-
-
-                "Above is the bare-bones stripped down version of my site. If you're familiar with React or Next.js, the it should look very familiar.
-
-                Snippet 1 contains two things. The first is a macro that supresses warnings about snake case. Normally, functions in rust use snake_case and the compiler will give a warning if you don’t follow the standard convention, but in the React ecosystem, we tend to use PascalCase for function components. Below the macro are project imports. For external crates, we have dioxus and dioxus router. The other imports are just two pages components in different files.
-
-                Snippet 2 consists of the router. The code is fairly self explanatory. The main thing of note is that the last enum variant is the catch all route. Any URL that doesn't pattern match to any above it will be directed to this custom 404 page.
-
-                Snippet 3 is a component that is used as the home page. The base URL will route to and render this component. Dioxus uses RSX, but they do provide an html macro that allows you to write a more familiar JSX style. RSX supports TailwindCSS which is what I use for styling in this example.
-
-                Snippet 4 is just the entry point for the web app. The function app() renders the current route which is ran by main. It's just boilerplate you should keep in main.rs.
-
-                Dioxus also has it's own CLI tool that makes serving easy. You just run " code {"dx serve"} " to host it locally. It should say to open " 
+                "Above is the bare-bones stripped-down version of my site. If you're familiar with React or Next.js, it should look very familiar."
+            }
+            p { 
+                "Snippet 1 contains two things. The first is a macro that suppresses warnings about snake case. Normally, functions in rust use snake_case and the compiler will give a warning if you don’t follow the standard convention, but in the React ecosystem, we tend to use PascalCase for function components. Below the macro are project imports. For external crates, we have dioxus and dioxus router. The other imports are just two pages components in different files."
+            }
+            p { 
+                "Snippet 2 consists of the router. The code is fairly self-explanatory. The main thing of note is that the last enum variant is the catch all route. Any URL that doesn't pattern match to any above it will be directed to this custom 404 page."
+            }
+            p { 
+                "Snippet 3 is a component that is used as the home page. The base URL will route to and render this component. Dioxus uses RSX, but they do provide an html macro that allows you to write a more familiar JSX style. RSX supports TailwindCSS which is what I use for styling in this example."
+            }
+            p { 
+                "Snippet 4 is just the entry point for the web app. The function app() renders the current route which is ran by main. It's just boilerplate you should keep in main.rs."
+            }
+            p { 
+                "Dioxus also has its own CLI tool that makes serving easy. You just run " code {"dx serve"} " to host it locally. It should say to open " 
                 code { "https://localhost:8080/"}
                 " to view the site. You can read more about how to get started with Dioxus "
                 Link { to:"https://dioxuslabs.com/learn/0.4/getting_started", class: "underline underline-offset-4 hover:text-highlight", "here"} 
@@ -93,69 +97,61 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
             }
         }
 
-        // Into the Dark Forrest
+        // Into the Dark Forest
         TextBox {
             header: "Into the Dark Forest".into(),
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "Once you leave tutorial zone, you'll quickly realize you’ve entered a dark forest, one with poor documentation. It is up to you to find your way to sanctuary. Here is a list of things that took me a second to figure out.
-
-                ✧ Why routing broke when I added Tailwind
+                "Once you leave tutorial zone, you'll quickly realize you’ve entered a dark forest, one with poor documentation. It is up to you to find your way to sanctuary. Here is a list of things that took me a second to figure out."
+            }
+            p { style: "white-space: pre-line",
+                "✧ Why routing broke when I added Tailwind
                 ✧ Hosting on Github Pages
                 ✧ Loading JS libraries
-                ✧ Cleaning up memory leaks when components are dropped
-
-                Many of these difficulties were due to poor documentation, a common occurrence in fastly growing projectss. Luckily, their discord was invaluable for solving a lot of these issues, as many people have had similar questions in the past."
+                ✧ Cleaning up memory leaks when components are dropped"
+            }
+            p { 
+                "Many of these difficulties were due to poor documentation, a common occurrence in fastly growing projects. Luckily, their discord was invaluable for solving a lot of these issues, as many people have had similar questions in the past."
             }
         }
 
-        // Into the Dark Forrest
+        // Fixing Routing 
         TextBox {
             header: "Fixing Routing".into(),
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
                 "
                 To let the CLI know that you are using Tailwind, you must explicitly define it in a Dioxus config via a "
                 code {"Dioxus.toml"}
                 " file. Here is what is provided in the "
-                Link { to:"https://dioxuslabs.com/learn/0.4/cookbook/tailwind", class: "underline underline-offset-4 hover:text-highlight", "docs"} ".
-
-                I eventually learned that the Dioxus CLI was updated after this documentation was created. Since then, routing was completely reworked and the CLI must use a newer default config. When I added Tailwind, I had to override the newer deployment configuration with an old config that didn't account for routing. Luckily, the solution was a simple fix, I just needed to add this line in the toml:"
+                Link { to:"https://dioxuslabs.com/learn/0.4/cookbook/tailwind", class: "underline underline-offset-4 hover:text-highlight", "docs"} "."
+            }
+            p { 
+                "I eventually learned that the Dioxus CLI was updated after this documentation was created. Since then, routing was completely reworked and the CLI must use a newer default config. When I added Tailwind, I had to override the newer deployment configuration with an old config that didn't account for routing. Luckily, the solution was a simple fix, I just needed to add this line in the toml:"
             }
 
             CodeBlock { file: "./Dioxus.toml".into(), code { class: "language-toml", "{codeblock2()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
                 "That's better. We'll also talk about hosting on Github pages here because it similarly involved the toml."
             }
         }
 
-        // Into the Dark Forrest
+        // Hosting on Github Pages 
         TextBox {
             header: "Hosting on Github Pages".into(),
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-
                 "The easiest way to host this was to move the build output directory to /docs and then, in the Pages settings page in the github repository, select it to build from /docs. Below is a screenshot of what it should look like."
             }
 
             img { class: "mt-12 mb-12 border border-lightgrey rounded-xl", src: "blog-mewrf-1.png", height: "300"}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
                 "Github Pages will host your site at "
                 code {"http://<USERNAME>.github.io/"}
                 ". If your repository is named "
                 code {"<USERNAME>.github.io"}
                 " the site will be hosted at the base URL, "
                 code {"/"}
-                ". Otherwise it'll go live at code " code {"/<REPO_NAME>"} ". I have my custom domain set up so it says "
+                ". Otherwise, it'll go live at code " code {"/<REPO_NAME>"} ". I have my custom domain set up so it says "
                 code {"http://nathan.rs/"}
                 " for me."
             }
@@ -163,78 +159,67 @@ pub fn ExperienceWithRustFrontEnd(cx: Scope) -> Element {
             CodeBlock { file: "./Dioxus.toml".into(), code { class: "language-toml", "{codeblock3()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "My file tree looks something like this."
+                "My file tree looks something like this:"
             }
 
             CodeBlock { file: "File Tree".into(), code { class: "language-toml", "{codeblock4()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "
-                The base level index.html is just because I have custom HTML I need to load highlight.js to do the syntax highlighting for the code block components. The Dioxus CLI produces a new HTML and JS file every time you build but there is a CLI option to have a custom HTML page which produces one in the base directory for you to edit.
-
-                As you can see, " code {"dx serve"} " and code " code {"dx build --release"} " now builds everything in " code {"/docs"} ", which Github Pages treats as the base directory. Easy peasy."
+                "The base level index.html is just because I have custom HTML I need to load highlight.js to do the syntax highlighting for the code block components. The Dioxus CLI produces a new HTML and JS file every time you build but there is a CLI option to have a custom HTML page that produces one in the base directory for you to edit."
+            }
+            p { 
+                "As you can see, " code {"dx serve"} " and code " code {"dx build --release"} " now builds everything in " code {"/docs"} ", which Github Pages treats as the base directory. Easy peasy."
             }
         }
 
-        // Into the Dark Forrest
+        // Interacting with JavaScript Libraries from Rust 
         TextBox {
             header: "Interacting with JavaScript Libraries from Rust".into(),
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "
-                The wasm-bindgen project provides developers with a few tools for interacting with JS and browser APIs.
+                "The wasm-bindgen project provides developers with a few tools for interacting with JS and browser APIs."
+            }
 
-                The web-sys crate contains bindings to browser web APIs. This includes things like the Document Object Model (DOM), HTML elements, browser-specific functions like window.fetch, and more. I use this extensively for my "
+            p { 
+                "The web-sys crate contains bindings to browser web APIs. This includes things like the Document Object Model (DOM), HTML elements, browser-specific functions like window.fetch, and more. I use this extensively for my "
                 Link { to:Route::GameOfLife {}, class: "underline underline-offset-4 hover:text-highlight", "Conway's Game of Life"}
                 " implementation. You can find the source code "
                 Link { to:"https://github.com/nathan-barry/nathan-barry.github.io/blob/3af983098dddfc21a81a3e1d66512b0babcfe031/src/projects/game_of_life.rs", class: "underline underline-offset-4 hover:text-highlight", "here"}
-                ". js-sys is what we're looking for, which is quite easy to use. It allows us to interact with JavaScript code directly from a rust file.
-
-                I mentioned above about loading a JS library via the index.html file. I included a link element which downloads highlight.js' default stylesheet and a script element that downloads the highlight.js library."
+                ". js-sys is what we're looking for, which is quite easy to use. It allows us to interact with JavaScript code directly from a rust file."
+            }
+            p {
+                "I mentioned above about loading a JS library via the index.html file. I included a link element that downloads highlight.js' default stylesheet and a script element that downloads the highlight.js library."
             }
 
             CodeBlock { file: "./index.html".into(), code { class: "language-html", "{codeblock5()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "I ended up making my own custom code syntax theme in " code {"./public/hljs.css" } " and updated the link element to be " code {"<link rel=\"stylesheet\" href=\"hljs.css\""} " to use my new theme.
-
-                Below is how to call the highlight.js library via Dioxus's " code {"use_effect"} " hook to highlight rendered code blocks."
+                "I ended up making my own custom code syntax theme in " code {"./public/hljs.css" } " and updated the link element to be " code {"<link rel=\"stylesheet\" href=\"hljs.css\""} " to use my new theme."
             }
-
+            p {
+                "Below is how to call the highlight.js library via Dioxus's " code {"use_effect"} " hook to highlight rendered code blocks."
+            }
 
             CodeBlock { file: "./src/main.rs".into(), code { class: "language-rust", "{codeblock6()}" }}
 
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-
-                "Like React, Dioxus has a " code {"use_effect hook"} " hook that fires whenever the page loads. All we need to do to execute JS code is call " code { "js_sys::eval(js_code)" } ". Thus, we can interact with JavaScript libraries directly in rust.
-
-                In another post I'll talk about I discovered a memory leak when testing my Conway's Game of Life implementation and what was my eventual solution, along with the implementation details on interacting directly with the DOM via the web-sys API. I’ll link it here whenever I get around to it."
+                "Like React, Dioxus has a " code {"use_effect hook"} " that fires whenever the page loads. All we need to do to execute JS code is call " code { "js_sys::eval(js_code)" } ". Thus, we can interact with JavaScript libraries directly in rust."
+            }
+            p {
+                "In another post, I'll talk about I discovered a memory leak when testing my Conway's Game of Life implementation and what was my eventual solution, along with the implementation details on interacting directly with the DOM via the web-sys API. I’ll link it here whenever I get around to it."
             }
         }
 
+        // My Takeaways
         TextBox {
             header: "My Takeaways".into(),
             p { 
-                class: "mt-8",
-                style: "white-space: pre-line",
-                "I had a very enjoyable time reimplementing my website in Rust using this framework.
-                
-                All of these Rust front-end libraries are very new and share the same characteristics as any frontier. There is usually poor documentation. Sometimes things just don't work. At times you'll have to dive deep into the source code to find answers. On the otherhand, the codebase is 'small' enough to where one person can comprehend it. Such a challenge is possible and rewarding. 
-
-                I think that such projects are lovely to work on. It requires you to get your hands dirty and actually understand what is going on under the hood. In the past I was a classic React user that only knew the abstraction, not the layers of complexity beneath it. This project helped uncover some of that complexity, while teaching me the basics of WebAssembly. I can recommend giving this library a try.
-
-                The End (for now)."
-
-            
+                "I had a very enjoyable time reimplementing my website in Rust using this framework."
+            }
+            p {
+                "All of these Rust front-end libraries are very new and share the same characteristics as any frontier. There is usually poor documentation. Sometimes things just don't work. At times you'll have to dive deep into the source code to find answers. On the other hand, the codebase is 'small' enough to where one person can comprehend it. Such a challenge is possible and rewarding."
+            }
+            p {
+                "I think that such projects are lovely to work on. It requires you to get your hands dirty and actually understand what is going on under the hood. In the past, I was a classic React user that only knew the abstraction, not the layers of complexity beneath it. This project helped uncover some of that complexity while teaching me the basics of WebAssembly. I can recommend giving this library a try."
             }
         }
         

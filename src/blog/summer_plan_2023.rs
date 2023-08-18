@@ -204,14 +204,14 @@ pub fn SummerPlan2023(cx: Scope) -> Element {
 
         TextBox {
             header: "Reflection".into(),
-            p { style: "white-space: pre-line",
-                "My summer was great. I did essentially a year's worth of classes, read a ton of books, riced up my setup ten-fold, and wrote a lot of code. I learned a tremendous amount about number theory, algebraic structures, physics, Rust, etc., and got good at climbing, juggling, and whatever I decided to do (omit skateboarding). 
-
-                At the start of the summer, I actually didn't know what I was going to do. I planned on doing research but was unsure whether it (or a PhD) would be something I'd actually enjoy. I discovered that I could double major in Math and also do the integrated CS master's program if I just got a few summer classes out of the way, so that is what I did.
-
-                Great decision. I'm really happy with how the summer turned out. As always, much smarter than before. May that trend continue."
-
-
+            p {
+                "My summer was great. I did essentially a year's worth of classes, read a ton of books, riced up my setup ten-fold, and wrote a lot of code. I learned a tremendous amount about number theory, algebraic structures, physics, Rust, etc., and got good at climbing, juggling, and whatever I decided to do (omit skateboarding)."
+            }
+            p {
+                "At the start of the summer, I actually didn't know what I was going to do. I planned on doing research but was unsure whether it (or a PhD) would be something I'd actually enjoy. I discovered that I could double major in Math and also do the integrated CS master's program if I just got a few summer classes out of the way, so that is what I did."
+            }
+            p {
+                "Great decision. I'm really happy with how the summer turned out. As always, much smarter than before. May that trend continue."
             }
         }
     }

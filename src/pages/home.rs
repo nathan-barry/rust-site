@@ -1,5 +1,5 @@
 use crate::Route;
-use crate::components::{text_box::TextBox, column::Column, quote::Quote};
+use crate::components::{column::Column, quote::Quote};
 use dioxus::prelude::*;
 use dioxus_router::prelude::*;
 
@@ -7,7 +7,7 @@ use dioxus_router::prelude::*;
 pub fn Home(cx: Scope) -> Element {
     render! {
         div {
-            p { class: "mb-4",
+            p {
                 "THIS IS THE WEBSITE of " b { "Nathan Barry" }  ", a Computer Science and Mathematics major at " 
                 Link {
                     class: "underline underline-offset-4 hover:text-highlight",
@@ -16,7 +16,7 @@ pub fn Home(cx: Scope) -> Element {
                 }
                 ". There are many like it, but this one is " i { "mine" } "."
             }
-            p { class: "mb-4",
+            p {
                 "This entire website is written in "
                 Link {
                     class: "underline underline-offset-4 hover:text-highlight",
